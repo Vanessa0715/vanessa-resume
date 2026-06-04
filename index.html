@@ -786,57 +786,92 @@
     /* ============================================
        PRINT / PDF
     ============================================ */
+    .print-header { display: none; }
+
+    .print-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+    }
+
+    .print-role-line {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dark-muted);
+      margin-bottom: 8px;
+    }
+
+    .print-contact-line {
+      display: flex;
+      gap: 0;
+      font-size: 10px;
+      color: var(--dark-muted);
+    }
+
+    .print-contact-line span + span::before { content: ' · '; }
+
     @media print {
-      @page { size: A4; margin: 14mm 18mm; }
+      @page { size: A4; margin: 15mm 20mm; }
 
       #nav, #device-toggle, .nav-drawer, #pdf-btn,
-      #footer, #contact, .hero-buttons,
-      .hero-subtitle, .section-label { display: none !important; }
+      #footer, #contact, .hero-buttons, .hero-subtitle, .hero-hello { display: none !important; }
 
       body { background: white !important; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-      #about { padding-top: 0 !important; background: none !important; }
+      #about { padding-top: 0 !important; min-height: unset !important; background: none !important; }
       #about::before { display: none !important; }
       #projects { background: white !important; }
 
       .hero-inner {
         flex-direction: row !important;
-        padding: 0 0 14px !important;
-        margin-bottom: 16px;
-        border-bottom: 2px solid #1C1915;
-        gap: 20px;
+        padding: 0 0 16px !important;
+        margin-bottom: 22px !important;
+        border-bottom: 2px solid var(--dark) !important;
+        gap: 24px !important;
+        align-items: center !important;
         animation: none !important;
       }
-      .hero-left-panel { flex: 0 0 108px !important; width: 108px !important; justify-content: flex-start !important; align-items: flex-start !important; }
-      .profile-card { width: 100px !important; padding: 10px !important; background: white !important; box-shadow: none !important; border: 1px solid #E8E0D8 !important; animation: none !important; }
-      .profile-photo { width: 58px !important; height: 58px !important; margin-bottom: 6px !important; }
-      .profile-name { font-size: 10px !important; }
-      .profile-divider { margin: 4px auto !important; }
-      .profile-title { font-size: 8px !important; }
-      .profile-socials { display: none !important; }
+
+      .hero-left-panel { flex: 0 0 auto !important; width: auto !important; justify-content: flex-start !important; align-items: flex-start !important; }
+
+      .profile-card { width: auto !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; border: none !important; animation: none !important; align-items: flex-start !important; }
+
+      .profile-photo { width: 72px !important; height: 72px !important; margin-bottom: 0 !important; box-shadow: none !important; border-color: var(--border) !important; }
+
+      .profile-name, .profile-divider, .profile-title, .profile-socials { display: none !important; }
+
       .hero-content { flex: 1 !important; padding: 0 !important; max-width: none !important; text-align: left !important; animation: none !important; }
-      .hero-name { font-size: 26px !important; margin-bottom: 2px !important; }
-      .hero-title { font-size: 11px !important; margin-bottom: 6px !important; }
-      .hero-bio p { font-size: 9px !important; line-height: 1.5 !important; max-width: none !important; }
 
-      .section { padding: 12px 0 !important; }
-      .section-title { font-size: 16px !important; margin-bottom: 10px !important; }
+      .print-header { display: block !important; }
 
-      .timeline { margin-left: 0 !important; padding-left: 0 !important; }
+      .hero-bio { margin-top: 10px !important; }
+      .hero-bio p { font-size: 9px !important; line-height: 1.6 !important; max-width: none !important; margin-bottom: 2px !important; }
+
+      .section { padding: 0 0 16px !important; max-width: none !important; }
+      .section-label { display: none !important; }
+      .section-title { font-size: 15px !important; margin-bottom: 12px !important; padding-bottom: 5px !important; border-bottom: 1.5px solid var(--dark) !important; }
+
+      .timeline { padding-left: 0 !important; }
       .timeline::before, .timeline-dot { display: none !important; }
-      .timeline-item { margin-bottom: 12px !important; padding-bottom: 12px !important; page-break-inside: avoid; }
+      .timeline-item { margin-bottom: 10px !important; padding-bottom: 10px !important; page-break-inside: avoid; }
+      .timeline-item:last-child { margin-bottom: 0 !important; padding-bottom: 0 !important; }
       .timeline-logo { width: 30px !important; height: 30px !important; }
       .timeline-period { font-size: 8px !important; }
-      .timeline-role { font-size: 13px !important; }
+      .timeline-role { font-size: 13px !important; margin-bottom: 2px !important; }
       .timeline-company { font-size: 9px !important; margin-bottom: 5px !important; }
       .timeline-desc { font-size: 9px !important; line-height: 1.55 !important; max-width: none !important; }
       .timeline-tags { margin-top: 5px !important; gap: 4px !important; }
       .tag { font-size: 7px !important; padding: 2px 7px !important; }
 
       .skills-grid { gap: 4px !important; }
-      .skill-pill { font-size: 9px !important; padding: 3px 9px !important; }
+      .skill-pill { font-size: 8.5px !important; padding: 3px 9px !important; }
       .certs-block { margin-top: 12px !important; }
-      .certs-heading { font-size: 14px !important; margin-bottom: 6px !important; }
+      .certs-heading { font-size: 13px !important; margin-bottom: 8px !important; }
       .cert-item { padding: 7px 12px !important; max-width: none !important; }
       .cert-link { display: none !important; }
       .cert-name { font-size: 10px !important; }
@@ -844,8 +879,8 @@
       .cert-logo img { width: 28px !important; height: 28px !important; }
 
       .projects-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
-      .project-card { padding: 9px 12px !important; box-shadow: none !important; border: 1px solid #E8E0D8 !important; page-break-inside: avoid; }
-      .project-num { font-size: 8px !important; }
+      .project-card { padding: 9px 12px !important; box-shadow: none !important; border: 1px solid var(--border) !important; page-break-inside: avoid; }
+      .project-num { font-size: 18px !important; margin-bottom: 4px !important; }
       .project-title { font-size: 11px !important; margin-bottom: 4px !important; }
       .project-desc { font-size: 9px !important; }
     }
