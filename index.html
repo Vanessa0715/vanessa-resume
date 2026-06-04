@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanessa Huang · 運營負責人</title>
+  <meta id="meta-desc" name="description" content="7 年以上數位運營經歷，深耕語音社交 App 生態。前 Lita 台灣區運營負責人，擅長大R維運與陪玩師社群管理。">
+  <meta property="og:title" content="Vanessa Huang · Operation Manager">
+  <meta property="og:description" content="7+ years in voice social entertainment operations. Former Taiwan GM at Lita.">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ============================================
+       VARIABLES
+    ============================================ */
+    :root {
+      --beige: #CEC0AD;
+      --beige-light: #DDD3C4;
+      --white: #FAFAF8;
+      --dark: #1C1915;
+      --dark-muted: #5A5550;
+      --accent: #3561E0;
+      --accent-hover: #2448C7;
+      --card-bg: #F5F0EB;
+      --border: #E8E0D8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --nav-h: 64px;
+      --split: 42%;
+      --card-w: 220px;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================
+       MOBILE PREVIEW MODE
+    ============================================ */
+    body.mobile-preview {
+      background: #D8D2CB;
+      padding: 24px 12px 48px;
+    }
+
+    body.mobile-preview #preview-root {
+      max-width: 390px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-square {
+      width: 13px; height: 13px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sep {
+      color: var(--border);
+      font-size: 18px;
+    }
+
+    .nav-role {
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark-muted);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-muted);
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .lang-trigger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--dark-muted);
+      padding: 5px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.2s;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .lang-trigger:hover,
+    .lang-switcher.open .lang-trigger {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .lang-trigger i { font-size: 11px; }
+
+    .lang-chevron {
+      font-size: 8px !important;
+      transition: transform 0.2s;
+    }
+
+    .lang-switcher.open .lang-chevron {
+      transform: rotate(180deg);
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      list-style: none;
+      padding: 4px;
+      display: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      z-index: 200;
+      min-width: 72px;
+    }
+
+    .lang-switcher.open .lang-menu { display: block; }
+
+    .lang-menu li {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--dark-muted);
+      padding: 7px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .lang-menu li:hover { background: var(--card-bg); color: var(--accent); }
+    .lang-menu li.active-lang { color: var(--accent); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 48px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .nav-drawer.open { display: flex; }
+
+    .nav-drawer a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-drawer a:hover { color: var(--accent); }
+
+    /* ============================================
+       HERO (split layout)
+    ============================================ */
+    #about {
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--beige) var(--split), var(--white) var(--split));
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 60px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Profile Card */
+    .hero-left-panel {
+      flex: 0 0 var(--split);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-card {
+      flex-shrink: 0;
+      width: var(--card-w);
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      padding: 36px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: cardIn 0.8s ease both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-photo {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 3px solid var(--white);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      position: relative;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #D4C5B0, #BFB09A);
+    }
+
+    .profile-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .profile-divider {
+      width: 32px; height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+      margin-bottom: 12px;
+    }
+
+    .profile-title {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark-muted);
+      margin-bottom: 24px;
+    }
+
+    .profile-socials { display: flex; gap: 14px; }
+
+    .profile-socials a {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dark-muted);
+      font-size: 14px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .profile-socials a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    /* Hero Content */
+    .hero-content {
+      flex: 1;
+      padding: 0 48px 0 56px;
+      max-width: 720px;
+      animation: contentIn 0.9s 0.15s ease both;
+    }
+
+    @keyframes contentIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .hero-hello {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 8vw, 110px);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--dark-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      padding: 11px 26px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1.5px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(53,97,224,0.3);
+    }
+
+    .btn-outline { background: transparent; color: var(--dark); border-color: var(--dark); }
+
+    .btn-outline:hover { background: var(--dark); color: var(--white); transform: translateY(-1px); }
+
+    .hero-bio p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--dark-muted);
+      max-width: 460px;
+      margin-bottom: 12px;
+    }
+
+    /* ============================================
+       SECTIONS
+    ============================================ */
+    .section {
+      padding: 96px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 52px;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 32px; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -37px; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-period {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .timeline-role {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--dark-muted);
+      margin-bottom: 16px;
+    }
+
+    .timeline-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--dark-muted);
+      max-width: 680px;
+    }
+
+    .timeline-desc strong { color: var(--dark); font-weight: 500; }
+
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+    .tag {
+      padding: 4px 12px;
+      background: rgba(53,97,224,0.08);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 100px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 32px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
+
+    .project-num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+
+    .project-desc { font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--dark-muted); }
+
+    /* Contact */
+    #contact { background: var(--dark); padding: 96px 48px; }
+
+    #contact .section-label { color: rgba(255,255,255,0.35); }
+    #contact .section-title { color: var(--white); }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+
+    .contact-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 6px;
+    }
+
+    .contact-value { font-size: 15px; font-weight: 300; color: var(--white); }
+
+    .contact-value a { color: var(--white); transition: color 0.2s; }
+    .contact-value a:hover { color: var(--accent); }
+
+    .contact-note {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    #footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--dark-muted); font-weight: 300; }
+
+    .footer-cols { display: flex; gap: 52px; align-items: center; }
+
+    .footer-col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark); margin-bottom: 5px; }
+
+    .footer-col-value { font-size: 12px; color: var(--dark-muted); font-weight: 300; }
+
+    .footer-socials { display: flex; gap: 14px; }
+
+    .footer-socials a { font-size: 14px; color: var(--dark-muted); transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--accent); }
+
+    /* ============================================
+       DEVICE PREVIEW TOGGLE
+    ============================================ */
+    #device-toggle {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9999;
+      background: var(--dark);
+      border-radius: 100px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+
+    #device-toggle:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
+
+    .toggle-icon { font-size: 13px; color: rgba(255,255,255,0.35); transition: color 0.2s; line-height: 1; }
+    .toggle-icon.active { color: white; }
+
+    .toggle-track {
+      width: 30px; height: 16px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 100px;
+      position: relative;
+      transition: background 0.25s;
+      flex-shrink: 0;
+    }
+
+    body.mobile-preview .toggle-track { background: var(--accent); }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 12px; height: 12px;
+      background: white;
+      border-radius: 50%;
+      transition: left 0.25s ease;
+    }
+
+    body.mobile-preview .toggle-thumb { left: 16px; }
+
+    /* ============================================
+       SKILLS
+    ============================================ */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .skill-pill {
+      padding: 8px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--dark);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .skill-pill:hover {
+      background: rgba(53,97,224,0.08);
+      color: var(--accent);
+      border-color: rgba(53,97,224,0.25);
+    }
+
+    .certs-block { margin-top: 52px; }
+
+    .certs-heading {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      max-width: 520px;
+    }
+
+    .cert-logo { flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+    .cert-logo img { width: 40px; height: 40px; object-fit: contain; border-radius: 6px; }
+    .cert-body { flex: 1; }
+    .cert-name { font-size: 14px; font-weight: 500; color: var(--dark); }
+    .cert-meta { font-size: 12px; color: var(--dark-muted); margin-top: 3px; }
+
+    .cert-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      white-space: nowrap;
+      border: 1.5px solid rgba(53,97,224,0.3);
+      padding: 6px 14px;
+      border-radius: 100px;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .cert-link:hover { background: rgba(53,97,224,0.08); border-color: var(--accent); }
+
+    /* Timeline company logo */
+    .timeline-logo {
+      position: absolute;
+      right: 0; top: 0;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+    .timeline-logo img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    /* PDF download button */
+    #pdf-btn {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+      z-index: 99;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    #pdf-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(53,97,224,0.32);
+    }
+
+    /* ============================================
+       PRINT / PDF
+    ============================================ */
+    @media print {
+      @page { size: A4; margin: 14mm 18mm; }
+
+      #nav, #device-toggle, .nav-drawer, #pdf-btn,
+      #footer, #contact, .hero-buttons,
+      .hero-subtitle, .section-label { display: none !important; }
+
+      body { background: white !important; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      #about { padding-top: 0 !important; background: none !important; }
+      #about::before { display: none !important; }
+      #projects { background: white !important; }
+
+      .hero-inner {
+        flex-direction: row !important;
+        padding: 0 0 14px !important;
+        margin-bottom: 16px;
+        border-bottom: 2px solid #1C1915;
+        gap: 20px;
+        animation: none !important;
+      }
+      .hero-left-panel { flex: 0 0 108px !important; width: 108px !important; justify-content: flex-start !important; align-items: flex-start !important; }
+      .profile-card { width: 100px !important; padding: 10px !important; background: white !important; box-shadow: none !important; border: 1px solid #E8E0D8 !important; animation: none !important; }
+      .profile-photo { width: 58px !important; height: 58px !important; margin-bottom: 6px !important; }
+      .profile-name { font-size: 10px !important; }
+      .profile-divider { margin: 4px auto !important; }
+      .profile-title { font-size: 8px !important; }
+      .profile-socials { display: none !important; }
+      .hero-content { flex: 1 !important; padding: 0 !important; max-width: none !important; text-align: left !important; animation: none !important; }
+      .hero-name { font-size: 26px !important; margin-bottom: 2px !important; }
+      .hero-title { font-size: 11px !important; margin-bottom: 6px !important; }
+      .hero-bio p { font-size: 9px !important; line-height: 1.5 !important; max-width: none !important; }
+
+      .section { padding: 12px 0 !important; }
+      .section-title { font-size: 16px !important; margin-bottom: 10px !important; }
+
+      .timeline { margin-left: 0 !important; padding-left: 0 !important; }
+      .timeline::before, .timeline-dot { display: none !important; }
+      .timeline-item { margin-bottom: 12px !important; padding-bottom: 12px !important; page-break-inside: avoid; }
+      .timeline-logo { width: 30px !important; height: 30px !important; }
+      .timeline-period { font-size: 8px !important; }
+      .timeline-role { font-size: 13px !important; }
+      .timeline-company { font-size: 9px !important; margin-bottom: 5px !important; }
+      .timeline-desc { font-size: 9px !important; line-height: 1.55 !important; max-width: none !important; }
+      .timeline-tags { margin-top: 5px !important; gap: 4px !important; }
+      .tag { font-size: 7px !important; padding: 2px 7px !important; }
+
+      .skills-grid { gap: 4px !important; }
+      .skill-pill { font-size: 9px !important; padding: 3px 9px !important; }
+      .certs-block { margin-top: 12px !important; }
+      .certs-heading { font-size: 14px !important; margin-bottom: 6px !important; }
+      .cert-item { padding: 7px 12px !important; max-width: none !important; }
+      .cert-link { display: none !important; }
+      .cert-name { font-size: 10px !important; }
+      .cert-meta { font-size: 8px !important; }
+      .cert-logo img { width: 28px !important; height: 28px !important; }
+
+      .projects-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+      .project-card { padding: 9px 12px !important; box-shadow: none !important; border: 1px solid #E8E0D8 !important; page-break-inside: avoid; }
+      .project-num { font-size: 8px !important; }
+      .project-title { font-size: 11px !important; margin-bottom: 4px !important; }
+      .project-desc { font-size: 9px !important; }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 900px) {
+      :root { --nav-h: 56px; }
+
+      #nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { padding: 24px; }
+
+      #about::before { background: linear-gradient(to bottom, var(--beige) 50%, var(--white) 50%); }
+
+      .hero-inner { flex-direction: column; padding: 48px 0 56px; align-items: center; gap: 40px; }
+      .hero-left-panel { flex: none; width: 100%; }
+      .profile-card { width: 200px; }
+      .hero-content { padding: 0 24px; max-width: 100%; text-align: center; }
+      .hero-buttons { justify-content: center; }
+      .hero-bio p { max-width: 100%; }
+
+      .section { padding: 64px 24px; }
+      .contact-grid { grid-template-columns: 1fr; }
+
+      #footer { flex-direction: column; gap: 24px; text-align: center; padding: 28px 24px; }
+      .footer-cols { gap: 28px; justify-content: center; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile preview — force mobile layout */
+    body.mobile-preview #preview-root #nav { padding: 0 24px; }
+    body.mobile-preview #preview-root .nav-links { display: none; }
+    body.mobile-preview #preview-root .nav-hamburger { display: flex; }
+    body.mobile-preview #preview-root #about::before { background: linear-gradient(to bottom, var(--beige) 50%, var(--white) 50%); }
+    body.mobile-preview #preview-root .hero-inner { flex-direction: column; padding: 48px 0 56px; align-items: center; gap: 40px; }
+    body.mobile-preview #preview-root .hero-left-panel { flex: none; width: 100%; }
+    body.mobile-preview #preview-root .profile-card { width: 200px; }
+    body.mobile-preview #preview-root .hero-content { padding: 0 24px; max-width: 100%; text-align: center; }
+    body.mobile-preview #preview-root .hero-buttons { justify-content: center; }
+    body.mobile-preview #preview-root .hero-bio p { max-width: 100%; }
+    body.mobile-preview #preview-root .section { padding: 64px 24px; }
+    body.mobile-preview #preview-root .contact-grid { grid-template-columns: 1fr; }
+    body.mobile-preview #preview-root #footer { flex-direction: column; gap: 24px; text-align: center; padding: 28px 24px; }
+    body.mobile-preview #preview-root .footer-cols { gap: 28px; justify-content: center; }
+    body.mobile-preview #preview-root .projects-grid { grid-template-columns: 1fr; }
+  </style>
+</head>
+<body>
+
+<!-- ============ PDF DOWNLOAD ============ -->
+<button id="pdf-btn" onclick="downloadPDF()">
+  <i class="fa-solid fa-download"></i>
+  <span>PDF</span>
+</button>
+
+<!-- ============ DEVICE PREVIEW TOGGLE ============ -->
+<div id="device-toggle" onclick="toggleDevice()" title="切換桌面 / 手機版預覽">
+  <span class="toggle-icon active" id="icon-desktop"><i class="fa-solid fa-desktop"></i></span>
+  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+  <span class="toggle-icon" id="icon-mobile"><i class="fa-solid fa-mobile-screen"></i></span>
+</div>
+
+<!-- ============ PREVIEW ROOT ============ -->
+<div id="preview-root">
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-brand">
+      <div class="nav-square"></div>
+      <span class="nav-name">Vanessa</span>
+      <span class="nav-sep">/</span>
+      <span class="nav-role">Operation Manager</span>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about"    class="active" data-i18n="nav.about">關於我</a></li>
+        <li><a href="#resume"              data-i18n="nav.resume">履歷</a></li>
+        <li><a href="#skills"              data-i18n="nav.skills">技能</a></li>
+        <li><a href="#certs"               data-i18n="nav.certs">證照</a></li>
+        <li><a href="#projects"            data-i18n="nav.projects">代表案例</a></li>
+        <li><a href="#contact"             data-i18n="nav.contact">聯繫</a></li>
+      </ul>
+      <div class="lang-switcher" id="lang-switcher">
+        <div class="lang-trigger" onclick="toggleLangMenu(event)">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-label">TW</span>
+          <i class="fa-solid fa-chevron-down lang-chevron"></i>
+        </div>
+        <ul class="lang-menu" id="lang-menu">
+          <li class="active-lang" onclick="selectLang('TW')">TW</li>
+          <li onclick="selectLang('CN')">CN</li>
+          <li onclick="selectLang('EN')">EN</li>
+        </ul>
+      </div>
+      <div class="nav-hamburger" onclick="toggleDrawer()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="#about"    onclick="closeDrawer()" data-i18n="nav.about">關於我</a>
+    <a href="#resume"   onclick="closeDrawer()" data-i18n="nav.resume">履歷</a>
+    <a href="#skills"   onclick="closeDrawer()" data-i18n="nav.skills">技能</a>
+    <a href="#certs"    onclick="closeDrawer()" data-i18n="nav.certs">證照</a>
+    <a href="#projects" onclick="closeDrawer()" data-i18n="nav.projects">代表案例</a>
+    <a href="#contact"  onclick="closeDrawer()" data-i18n="nav.contact">聯繫</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="about">
+    <div class="hero-inner">
+
+      <div class="hero-left-panel">
+        <div class="profile-card">
+          <div class="profile-photo">
+            <img src="assets/photo.jpeg" alt="Vanessa">
+          </div>
+          <div class="profile-name">Vanessa Huang</div>
+          <div class="profile-divider"></div>
+          <div class="profile-title">Operation Manager</div>
+          <div class="profile-socials">
+            <a href="https://www.linkedin.com/in/vanessahuang0715" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:sugars0715@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-hello">Hello</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">關於我與我的工作</p>
+        <div class="hero-buttons">
+          <a href="#resume"   class="btn btn-primary" data-i18n="hero.btn1">查看履歷</a>
+          <a href="#projects" class="btn btn-outline"  data-i18n="hero.btn2">代表案例</a>
+        </div>
+        <div class="hero-bio">
+          <p data-i18n="hero.bio1">語音社交 App 本地運營 OM，7 年數位運營經歷，專精高付費用戶維護、主播管理與平台本地化策略。曾任 Lita 台灣市場唯一本地運營負責人，全程主導完整運營週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場運營體系。</p>
+          <p data-i18n="hero.bio2">親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求遠端全職 Operations Manager 或相關職缺。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="section">
+      <div class="section-label" data-i18n="exp.label">Experience</div>
+      <h2 class="section-title" data-i18n="exp.title">工作經歷</h2>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-logo"><img src="assets/logo-lita.png" alt="Lita"></div>
+          <div class="timeline-period" data-i18n="lita.period">2022年3月 — 2026年5月</div>
+          <h3 class="timeline-role"    data-i18n="lita.role">Operations Manager</h3>
+          <div class="timeline-company" data-i18n="lita.company">Lita · 語音社交娛樂平台</div>
+          <div class="timeline-desc"   data-i18n-html="lita.desc">自台灣市場落地起擔任唯一本地運營負責人，全程主導完整運營週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域運營體系。<br><br><strong>▶ 職責範疇</strong><br>統籌用戶招募、VIP 維護、陪玩師管理、語音房活躍、活動企劃與平台功能提案；獨立建立多套本地化運營體系（SOP、公告、文案、用戶規範），部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房 ROAS 從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。</div>
+          <div class="timeline-tags" data-i18n-html="lita.tags">
+            <span class="tag">用戶運營</span>
+            <span class="tag">大R維運</span>
+            <span class="tag">社群管理</span>
+            <span class="tag">語音直播</span>
+            <span class="tag">跨境運營</span>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-logo"><img src="assets/logo-mycard.png" alt="MyCard"></div>
+          <div class="timeline-period" data-i18n="sw.period">2019年4月 — 2021年11月</div>
+          <h3 class="timeline-role"    data-i18n="sw.role">Membership Marketing Project Manager</h3>
+          <div class="timeline-company" data-i18n="sw.company">Soft-World Intl. Corp. · MyCard 遊戲點數卡</div>
+          <div class="timeline-desc"   data-i18n-html="sw.desc">MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・以 GA + Google Sheets 建立每日自動化流量監測。</div>
+          <div class="timeline-tags" data-i18n-html="sw.tags">
+            <span class="tag">行銷企劃</span>
+            <span class="tag">數據分析</span>
+            <span class="tag">LINE OA</span>
+            <span class="tag">會員成長</span>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-logo"><img src="assets/logo-cit.png" alt="CIT"></div>
+          <div class="timeline-period" data-i18n="cit.period">2018年3月 — 2019年4月</div>
+          <h3 class="timeline-role"    data-i18n="cit.role">Event Planner</h3>
+          <div class="timeline-company" data-i18n="cit.company">財團法人中華民國運輸學會</div>
+          <div class="timeline-desc"   data-i18n-html="cit.desc">・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。</div>
+          <div class="timeline-tags" data-i18n-html="cit.tags">
+            <span class="tag">活動策劃</span>
+            <span class="tag">數位化轉型</span>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-logo"><img src="assets/logo-kinder.png" alt="Charlotte Kindergarten"></div>
+          <div class="timeline-period" data-i18n="kinder.period">2016年10月 — 2018年3月</div>
+          <h3 class="timeline-role"    data-i18n="kinder.role">音樂老師</h3>
+          <div class="timeline-company" data-i18n="kinder.company">夏綠蒂幼兒園（東森YOYO分園）</div>
+          <div class="timeline-desc"   data-i18n-html="kinder.desc">・擔任園內音樂老師，同時兼職 0–10 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。</div>
+          <div class="timeline-tags" data-i18n-html="kinder.tags">
+            <span class="tag">音樂教育</span>
+            <span class="tag">活動策劃</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section">
+      <div class="section-label" data-i18n="skills.label">Skills</div>
+      <h2 class="section-title" data-i18n="skills.title">專業技能</h2>
+      <div class="skills-grid" data-i18n-html="skills.items">
+        <span class="skill-pill">Claude Code Subagents</span>
+        <span class="skill-pill">專案管理</span>
+        <span class="skill-pill">數據驅動決策</span>
+        <span class="skill-pill">流程自動化</span>
+        <span class="skill-pill">高價值客戶管理</span>
+        <span class="skill-pill">敏捷專案管理</span>
+        <span class="skill-pill">產品本地化</span>
+        <span class="skill-pill">策略營運</span>
+        <span class="skill-pill">Google Analytics</span>
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">Trello</span>
+        <span class="skill-pill">Notion</span>
+        <span class="skill-pill">Microsoft Visual Studio Code</span>
+      </div>
+
+      <div class="certs-block" id="certs">
+        <h3 class="certs-heading" data-i18n="cert.heading">認證證照</h3>
+        <div class="cert-item">
+          <div class="cert-logo"><img src="assets/cert-ga.png" alt="Google Analytics Certificate"></div>
+          <div class="cert-body">
+            <div class="cert-name">Google Analytics Certificate</div>
+            <div class="cert-meta">Google</div>
+          </div>
+          <a href="https://edu.google.accredible.com/f6ed4533-c990-4862-8f0c-8968ab672df6" target="_blank" rel="noopener" class="cert-link" data-i18n="cert.view">查看證書</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="background:#F5F1ED;">
+    <div class="section">
+      <div class="section-label" data-i18n="proj.label">Selected Work</div>
+      <h2 class="section-title"  data-i18n="proj.title">代表案例</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <h3 class="project-title" data-i18n="p1.title">陪玩師資源調度自動化</h3>
+          <p class="project-desc"  data-i18n="p1.desc">接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程，以 Google Sheets 自動化模組降低人工成本。陪玩師 DAU 穩定至 400+（峰值 500+），語音房供給時長成長 56%。</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <h3 class="project-title" data-i18n="p2.title">Claude Code 多 Agent 系統</h3>
+          <p class="project-desc"  data-i18n="p2.desc">主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常運營任務，涵蓋數據摘要、推播文案生成與履歷網站開發等應用場景。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div style="max-width:1200px; margin:0 auto; padding:96px 48px;">
+      <div class="section-label" data-i18n="contact.label">Get In Touch</div>
+      <h2 class="section-title"  data-i18n="contact.title">聯繫我</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <div class="contact-label" data-i18n="contact.write.label">Write</div>
+            <div class="contact-value"><a href="mailto:sugars0715@gmail.com">sugars0715@gmail.com</a></div>
+          </div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value"><a href="https://www.linkedin.com/in/vanessahuang0715" target="_blank" rel="noopener">linkedin.com/in/vanessahuang0715</a></div>
+          </div>
+          <div>
+            <div class="contact-label" data-i18n="contact.loc.label">Location</div>
+            <div class="contact-value" data-i18n="contact.location">台灣 台北市 · 遠端優先</div>
+          </div>
+        </div>
+        <div>
+          <p class="contact-note" data-i18n="contact.note">目前開放接洽遠端全職 Operation Manager 及相關運營職缺。如有合適機會，歡迎來信。</p>
+          <a href="mailto:sugars0715@gmail.com" class="btn btn-primary" data-i18n="contact.btn">寫信給我</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-copy">© 2026 Vanessa Huang. All rights reserved.</div>
+    <div class="footer-cols">
+      <div>
+        <div class="footer-col-label">Write</div>
+        <div class="footer-col-value">sugars0715@gmail.com</div>
+      </div>
+      <div>
+        <div class="footer-col-label">Follow</div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/vanessahuang0715" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- #preview-root -->
+
+<script>
+  /* ============================================
+     i18n Content
+  ============================================ */
+  const i18n = {
+    TW: {
+      'meta.title': 'Vanessa Huang · 運營負責人',
+      'meta.desc':  '7 年以上數位運營經歷，深耕語音社交 App 生態。前 Lita 台灣區運營負責人，擅長大R維運與陪玩師社群管理。',
+      'nav.about':   '關於我',   'nav.resume': '履歷',
+      'nav.skills':  '技能',     'nav.certs':  '證照',
+      'nav.projects':'代表案例', 'nav.contact':'聯繫',
+      'hero.subtitle':'關於我與我的工作',
+      'hero.btn1':   '查看履歷', 'hero.btn2':'代表案例',
+      'hero.bio1':   '語音社交 App 本地運營 OM，7 年數位運營經歷，專精高付費用戶維護、主播管理與平台本地化策略。曾任 Lita 台灣市場唯一本地運營負責人，全程主導完整運營週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場運營體系。',
+      'hero.bio2':   '親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求遠端全職 Operations Manager 或相關職缺。',
+      'exp.label':   'Experience', 'exp.title':'工作經歷',
+      'proj.label':  'Selected Work', 'proj.title':'代表案例',
+      'contact.label':'Get In Touch', 'contact.title':'聯繫我',
+      'contact.write.label':'寫信', 'contact.loc.label':'所在地',
+      'lita.period': '2022年3月 — 2026年5月',
+      'lita.role':   'Operations Manager',
+      'lita.company':'Lita · 語音社交娛樂平台',
+      'lita.desc':   '自台灣市場落地起擔任唯一本地運營負責人，全程主導完整運營週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域運營體系。<br><br><strong>▶ 職責範疇</strong><br>統籌用戶招募、VIP 維護、陪玩師管理、語音房活躍、活動企劃與平台功能提案；獨立建立多套本地化運營體系（SOP、公告、文案、用戶規範），部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房 ROAS 從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。',
+      'lita.tags':   '<span class="tag">用戶運營</span><span class="tag">大R維運</span><span class="tag">社群管理</span><span class="tag">語音直播</span><span class="tag">跨境運營</span>',
+      'sw.period':   '2019年4月 — 2021年11月',
+      'sw.role':     'Membership Marketing Project Manager',
+      'sw.company':  'Soft-World Intl. Corp. · MyCard 遊戲點數卡',
+      'sw.desc':     'MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・以 GA + Google Sheets 建立每日自動化流量監測。',
+      'sw.tags':     '<span class="tag">行銷企劃</span><span class="tag">數據分析</span><span class="tag">LINE OA</span><span class="tag">會員成長</span>',
+      'cit.period':  '2018年3月 — 2019年4月',
+      'cit.role':    'Event Planner',
+      'cit.company': '財團法人中華民國運輸學會',
+      'cit.desc':    '・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。',
+      'cit.tags':    '<span class="tag">活動策劃</span><span class="tag">數位化轉型</span>',
+      'kinder.period':  '2016年10月 — 2018年3月',
+      'kinder.role':    '音樂老師',
+      'kinder.company': '夏綠蒂幼兒園（東森YOYO分園）',
+      'kinder.desc':    '・擔任園內音樂老師，同時兼職 0–10 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。',
+      'kinder.tags':    '<span class="tag">音樂教育</span><span class="tag">活動策劃</span>',
+      'p1.title':    '陪玩師資源調度自動化',
+      'p1.desc':     '接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程，以 Google Sheets 自動化模組降低人工成本。陪玩師 DAU 穩定至 400+（峰值 500+），語音房供給時長成長 56%。',
+      'p2.title':    'Claude Code 多 Agent 系統',
+      'p2.desc':     '主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常運營任務，涵蓋數據摘要、推播文案生成與履歷網站開發等應用場景。',
+      'contact.note':    '目前開放接洽遠端全職 Operation Manager 及相關運營職缺。如有合適機會，歡迎來信。',
+      'contact.btn':     '寫信給我',
+      'contact.location':'台灣 台北市 · 遠端優先',
+      'cert.heading':  '認證證照',
+      'cert.view':     '查看證書',
+      'skills.label':  'Skills',
+      'skills.title':  '專業技能',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">專案管理</span><span class="skill-pill">數據驅動決策</span><span class="skill-pill">流程自動化</span><span class="skill-pill">高價值客戶管理</span><span class="skill-pill">敏捷專案管理</span><span class="skill-pill">產品本地化</span><span class="skill-pill">策略營運</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
+    },
+
+    CN: {
+      'meta.title': 'Vanessa Huang · 运营负责人',
+      'meta.desc':  '7 年以上数字化运营经验，深耕语音社交 App 生态。前 Lita 台湾区运营负责人。',
+      'nav.about':   '关于我',   'nav.resume': '履历',
+      'nav.skills':  '技能',     'nav.certs':  '证照',
+      'nav.projects':'代表项目', 'nav.contact':'联系',
+      'hero.subtitle':'关于我与我的工作',
+      'hero.btn1':   '查看履历', 'hero.btn2':'代表项目',
+      'hero.bio1':   '语音社交 App 本地运营 OM，7 年数字化运营经验，专精高付费用户维护、主播管理与平台本地化策略。曾任 Lita 台湾市场唯一本地运营负责人，全程主导完整运营周期（2022–2026），并延伸至马来西亚华人市场建立双市场运营体系。',
+      'hero.bio2':   '亲手搭建 Claude Code 多 Agent 协作系统，将高重复流程系统化，人工作业时间减少 80%。目前寻求远程全职 Operations Manager 或相关职位。',
+      'exp.label':   'Experience', 'exp.title':'工作经历',
+      'proj.label':  'Selected Work', 'proj.title':'代表项目',
+      'contact.label':'Get In Touch', 'contact.title':'联系我',
+      'contact.write.label':'邮件', 'contact.loc.label':'所在地',
+      'lita.period': '2022年3月 — 2026年5月',
+      'lita.role':   'Operations Manager',
+      'lita.company':'Lita · 语音社交娱乐平台',
+      'lita.desc':   '台湾市场唯一本地运营负责人（2022–2026），2024 年起延伸至马来西亚华人市场，从 0 到 1 建立双市场运营体系。<br><br><strong>▶ 职责范畴</strong><br>统筹用户招募、VIP 维护、陪玩师管理、语音房活跃、活动企划与平台功能提案；独立建立多套本地化运营体系（SOP、公告、文案、用户规范），部分成果成为全大区参考范本。<br><br><strong>▶ 核心成果</strong><br>・核心付费用户建联率 66%，透过 LINE OA 自建高付费核心用户召回机制，年均推播点击率 40.8%，峰值 66.4%。<br>・语音房 ROAS 从 82% 提升至 96%（+14pp），纯靠活动设计与玩法迭代，不依赖产品功能更新。<br>・提出 35 项平台功能需求，25 项成功上线（采纳率 71%）。<br>・AI 自动化工作流让人工作业时间最高减少 80%。<br>・20+ 位 KOL 合作，主力活动单日付费用户达平日均值 2.5 倍。',
+      'lita.tags':   '<span class="tag">用户运营</span><span class="tag">大R维稳</span><span class="tag">社群管理</span><span class="tag">语音直播</span><span class="tag">跨境运营</span>',
+      'sw.period':   '2019年4月 — 2021年11月',
+      'sw.role':     'Membership Marketing Project Manager',
+      'sw.company':  'Soft-World Intl. Corp. · MyCard 游戏点数卡',
+      'sw.desc':     'MyCard 为台港澳最大游戏点数卡平台，提供千款数字内容服务。<br><br><strong>▶ 职责范畴</strong><br>负责会员营销策略规划、跨部门活动统筹与对外合作开发，管理 4 人团队。<br><br><strong>▶ 核心成果</strong><br>・统筹月均近百件会员活动，主导企划、受众分群与上线进度。<br>・LINE OA 月均好友增长 697%，推播最高 CTR 96%。<br>・活跃消费会员月均增长 46%，主力活动页月均 PV 增长 614%。<br>・参与 22+ 项功能迭代，两年间会员登录数增长 33%+。<br>・对外促成 LINE、台新银行、虾皮等异业合作。<br>・以 GA + Google Sheets 建立每日自动化流量监测。',
+      'sw.tags':     '<span class="tag">营销策划</span><span class="tag">数据分析</span><span class="tag">LINE OA</span><span class="tag">会员增长</span>',
+      'cit.period':  '2018年3月 — 2019年4月',
+      'cit.role':    'Event Planner',
+      'cit.company': '中华民国运输学会',
+      'cit.desc':    '・首创数字化报名机制，整合支付对接（绿界科技）、电子收据与 QR Code 身份验证，大幅降低人工作业成本。<br>・统筹大型学术研讨会，单日参会人次逾千，协办单位涵盖多个政府机关。<br>・负责季刊《运输学刊》出刊排版及会员营销运营。',
+      'cit.tags':    '<span class="tag">活动策划</span><span class="tag">数字化转型</span>',
+      'kinder.period':  '2016年10月 — 2018年3月',
+      'kinder.role':    '音乐老师',
+      'kinder.company': '夏绿蒂幼儿园（东森YOYO分园）',
+      'kinder.desc':    '・担任园内音乐老师，同时兼任 0–10 名私教，教学年龄层涵盖 2–60 岁。<br>・定期筹办音乐发表会，负责备课与学生成果展示规划。',
+      'kinder.tags':    '<span class="tag">音乐教育</span><span class="tag">活动策划</span>',
+      'p1.title':    '陪玩师资源调度自动化',
+      'p1.desc':     '承接台马大区整合，从 0 到 1 重搭陪玩师全生命周期运营链路。基于 Google Sheets 搭建自动化调度模块，实现资源利用率最大化。陪玩师 DAU 稳定至 400+（峰值 500+），语音房供给时长 +56%。',
+      'p2.title':    'Claude Code 多 Agent 协作系统',
+      'p2.desc':     '自主搭建 Claude Code 多 Agent 协作系统，将 AI 工作流赋能日常运营任务——涵盖数据摘要、推播文案生成与履历网站开发等场景，实现降本增效。',
+      'contact.note':    '目前开放洽谈远程全职 Operation Manager 及相关运营职位。如有合适机会，欢迎来信。',
+      'contact.btn':     '发邮件',
+      'contact.location':'台湾 台北市 · 远程优先',
+      'cert.heading':  '认证证照',
+      'cert.view':     '查看证书',
+      'skills.label':  'Skills',
+      'skills.title':  '专业技能',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">项目管理</span><span class="skill-pill">数据驱动决策</span><span class="skill-pill">流程自动化</span><span class="skill-pill">高价值客户管理</span><span class="skill-pill">敏捷项目管理</span><span class="skill-pill">产品本地化</span><span class="skill-pill">战略运营</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
+    },
+
+    EN: {
+      'meta.title': 'Vanessa Huang · Operation Manager',
+      'meta.desc':  '7+ years in digital operations, specializing in voice & social entertainment platforms. Former Taiwan GM at Lita.',
+      'nav.about':   'About',    'nav.resume': 'Resume',
+      'nav.skills':  'Skills',   'nav.certs':  'Certs',
+      'nav.projects':'Projects', 'nav.contact':'Contact',
+      'hero.subtitle':"Here's who I am & what I do",
+      'hero.btn1':   'Resume',   'hero.btn2':'Projects',
+      'hero.bio1':   'Voice & social app operations specialist with 7+ years of experience, focused on VIP retention, host community management, and platform localization. Former sole local Operations Manager at Lita Taiwan (2022–2026), with coverage extended to Malaysia\'s Chinese-speaking market.',
+      'hero.bio2':   'Built a Claude Code multi-agent automation system from scratch — cutting manual work by 80%. Open to remote full-time Operations Manager and related roles.',
+      'exp.label':   'Experience', 'exp.title':'My Resume',
+      'proj.label':  'Selected Work', 'proj.title':'Projects',
+      'contact.label':'Get In Touch', 'contact.title':'Contact',
+      'contact.write.label':'Write', 'contact.loc.label':'Location',
+      'lita.period': 'Mar 2022 — May 2026',
+      'lita.role':   'Taiwan Operations Manager',
+      'lita.company':'Lita · Voice Social Entertainment App',
+      'lita.desc':   'Sole local Operations Manager for the Taiwan market (2022–2026); extended to Malaysia\'s Chinese-speaking market in 2024, building a dual-market operations system from scratch.<br><br><strong>▶ Responsibilities</strong><br>Led end-to-end operations: user acquisition, VIP retention, host management, voice room engagement, campaign planning, and feature proposals. Built multiple localization systems (SOPs, announcements, copy, guidelines) — some adopted as regional benchmarks.<br><br><strong>▶ Key Results</strong><br>・66% VIP contact rate via LINE OA; avg push CTR 40.8% (peak 66.4%).<br>・Voice room ROAS: 82% → 96% (+14pp) through activity design alone.<br>・25 of 35 feature proposals approved (71% adoption rate).<br>・AI automation reduced manual work by up to 80%.<br>・20+ KOL campaigns; peak daily paying users at 2.5× daily average.',
+      'lita.tags':   '<span class="tag">Operations</span><span class="tag">VIP Management</span><span class="tag">Community</span><span class="tag">Voice Streaming</span><span class="tag">Cross-border</span>',
+      'sw.period':   'Apr 2019 — Nov 2021',
+      'sw.role':     'Membership Marketing Project Manager',
+      'sw.company':  'Soft-World Intl. Corp. · MyCard Game Points',
+      'sw.desc':     'MyCard is the largest prepaid game card platform in Taiwan, Hong Kong & Macau, with 1,000+ digital services.<br><br><strong>▶ Responsibilities</strong><br>Led membership marketing strategy, cross-departmental campaign management, and external partnerships. Managed a team of 4.<br><br><strong>▶ Key Results</strong><br>・Managed ~100 campaigns/month; 46% MoM growth in active paying members.<br>・Grew LINE OA audience 697% MoM avg; peak push CTR 96%.<br>・Key landing page PV grew 614% MoM; single page reached 1M+ monthly views.<br>・Contributed to 22+ product features; member logins grew 33%+ over two years.<br>・Facilitated partnerships with LINE, Taishin Bank, Shopee, and others.<br>・Built daily automated traffic monitoring with GA + Google Sheets.',
+      'sw.tags':     '<span class="tag">Campaign Mgmt</span><span class="tag">Data Analysis</span><span class="tag">LINE OA</span><span class="tag">Member Growth</span>',
+      'cit.period':  'Mar 2018 — Apr 2019',
+      'cit.role':    'Event Planner',
+      'cit.company': 'Chinese Institute of Transportation',
+      'cit.desc':    '・Designed the first digital registration system integrating payment gateway (ECPay), e-receipts, and QR Code check-in — significantly reducing manual processing.<br>・Organized annual academic conference with 1,000+ single-day attendees; coordinated multiple government agency co-organizers.<br>・Managed layout production for the quarterly journal and oversaw membership marketing.',
+      'cit.tags':    '<span class="tag">Event Planning</span><span class="tag">Digital Transformation</span>',
+      'kinder.period':  'Oct 2016 — Mar 2018',
+      'kinder.role':    'Music Teacher',
+      'kinder.company': 'Charlotte Kindergarten (YOYO Branch)',
+      'kinder.desc':    '・Music teacher at the kindergarten, with a side practice of 0–10 private students across ages 2–60.<br>・Organized regular student recitals and managed lesson planning and performance logistics.',
+      'kinder.tags':    '<span class="tag">Music Education</span><span class="tag">Event Planning</span>',
+      'p1.title':    'Automated Companion Scheduling & Dispatch',
+      'p1.desc':     'Following a cross-market merger, rebuilt the full companion lifecycle pipeline from scratch — recruitment, screening, onboarding, and automated scheduling via Google Sheets. Companion DAU stabilized at 400+ (peak 500+); voice room supply grew 56%.',
+      'p2.title':    'Claude Code Multi-Agent Automation',
+      'p2.desc':     'Independently designed and built a Claude Code multi-agent collaboration system — applying AI workflows to daily ops including data summaries, push copy generation, and resume site development.',
+      'contact.note':    "Currently open to remote full-time Operation Manager and related roles. If you have an opportunity that fits, I'd love to hear about it.",
+      'contact.btn':     'Say Hello',
+      'contact.location':'Taipei, Taiwan · Open to Remote',
+      'cert.heading':  'Certifications',
+      'cert.view':     'View Certificate',
+      'skills.label':  'Skills',
+      'skills.title':  'Skills',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">Project Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Business Process Automation</span><span class="skill-pill">High-Value Client Management</span><span class="skill-pill">Agile Project Management</span><span class="skill-pill">Product Localization</span><span class="skill-pill">Strategic Operations</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Visual Studio Code</span>',
+    }
+  };
+
+  /* ============================================
+     Language Switcher
+  ============================================ */
+  const LANGS = ['TW', 'CN', 'EN'];
+  let currentLang = 'TW';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('lang-label').textContent = lang;
+    document.documentElement.lang = lang === 'TW' ? 'zh-TW' : lang === 'CN' ? 'zh-CN' : 'en';
+    document.documentElement.dataset.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const val = i18n[lang][el.dataset.i18n];
+      if (val !== undefined) el.textContent = val;
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const val = i18n[lang][el.dataset.i18nHtml];
+      if (val !== undefined) el.innerHTML = val;
+    });
+
+    const t = i18n[lang]['meta.title'];
+    const d = i18n[lang]['meta.desc'];
+    if (t) document.title = t;
+    if (d) document.getElementById('meta-desc').content = d;
+  }
+
+  function toggleLangMenu(e) {
+    e.stopPropagation();
+    document.getElementById('lang-switcher').classList.toggle('open');
+  }
+
+  function selectLang(lang) {
+    setLang(lang);
+    document.getElementById('lang-switcher').classList.remove('open');
+    document.querySelectorAll('.lang-menu li').forEach(li => {
+      li.classList.toggle('active-lang', li.textContent.trim() === lang);
+    });
+  }
+
+  document.addEventListener('click', function() {
+    document.getElementById('lang-switcher').classList.remove('open');
+  });
+
+  /* ============================================
+     Device Preview Toggle
+  ============================================ */
+  function toggleDevice() {
+    const isM = document.body.classList.toggle('mobile-preview');
+    document.getElementById('icon-desktop').classList.toggle('active', !isM);
+    document.getElementById('icon-mobile').classList.toggle('active', isM);
+  }
+
+  /* ============================================
+     Mobile Nav Drawer
+  ============================================ */
+  function toggleDrawer() { document.getElementById('nav-drawer').classList.toggle('open'); }
+  function closeDrawer()  { document.getElementById('nav-drawer').classList.remove('open'); }
+
+  function downloadPDF() {
+    document.body.classList.remove('mobile-preview');
+    window.print();
+  }
+
+  /* ============================================
+     Active Nav on Scroll
+  ============================================ */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
