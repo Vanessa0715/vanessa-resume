@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanessa Huang · 運營負責人</title>
-  <meta id="meta-desc" name="description" content="7 年以上數位運營經歷，深耕語音社交 App 生態。前 Lita 台灣區運營負責人，擅長大R維運與陪玩師社群管理。">
+  <title>Vanessa Huang · 營運負責人</title>
+  <meta id="meta-desc" name="description" content="7 年以上數位營運經歷，深耕語音社交 App 生態。前 Lita 台灣區營運負責人，擅長大R維運與陪玩師社群管理。">
   <meta property="og:title" content="Vanessa Huang · Operation Manager">
   <meta property="og:description" content="7+ years in voice social entertainment operations. Former Taiwan GM at Lita.">
   <meta property="og:type" content="website">
@@ -126,9 +126,9 @@
     }
 
     .nav-links a {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--dark-muted);
       transition: color 0.2s;
@@ -341,6 +341,9 @@
       margin-bottom: 12px;
     }
 
+    .name-zh { display: block; font-size: 22px; font-weight: 700; line-height: 1.2; }
+    .name-en { display: block; font-size: 13px; font-weight: 400; color: var(--dark-muted); letter-spacing: 0.03em; margin-top: 3px; }
+
     .profile-divider {
       width: 32px; height: 2px;
       background: var(--accent);
@@ -393,7 +396,7 @@
 
     .hero-subtitle {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 600;
       color: var(--dark-muted);
       letter-spacing: 0.02em;
       margin-bottom: 32px;
@@ -436,11 +439,11 @@
     .btn-outline:hover { background: var(--dark); color: var(--white); transform: translateY(-1px); }
 
     .hero-bio p {
-      font-size: 14px;
-      font-weight: 300;
+      font-size: 16px;
+      font-weight: 600;
       line-height: 1.8;
       color: var(--dark-muted);
-      max-width: 460px;
+      max-width: 480px;
       margin-bottom: 12px;
     }
 
@@ -517,15 +520,15 @@
     }
 
     .timeline-company {
-      font-size: 13px;
-      font-weight: 400;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--dark-muted);
       margin-bottom: 16px;
     }
 
     .timeline-desc {
-      font-size: 14px;
-      font-weight: 300;
+      font-size: 15px;
+      font-weight: 600;
       line-height: 1.75;
       color: var(--dark-muted);
       max-width: 680px;
@@ -557,6 +560,22 @@
       border: 1px solid var(--border);
       padding: 32px;
       transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .project-card > *:not(.card-bg) {
+      position: relative;
+      z-index: 1;
     }
 
     .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
@@ -564,15 +583,15 @@
     .project-num {
       font-family: var(--font-display);
       font-size: 48px;
-      font-weight: 300;
-      color: var(--border);
+      font-weight: 700;
+      color: var(--dark-muted);
       line-height: 1;
       margin-bottom: 16px;
     }
 
-    .project-title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+    .project-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 
-    .project-desc { font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--dark-muted); }
+    .project-desc { font-size: 15px; font-weight: 600; line-height: 1.75; color: var(--dark-muted); }
 
     /* Contact */
     #contact { background: var(--dark); padding: 96px 48px; }
@@ -593,14 +612,14 @@
       margin-bottom: 6px;
     }
 
-    .contact-value { font-size: 15px; font-weight: 300; color: var(--white); }
+    .contact-value { font-size: 15px; font-weight: 600; color: var(--white); }
 
     .contact-value a { color: var(--white); transition: color 0.2s; }
     .contact-value a:hover { color: var(--accent); }
 
     .contact-note {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 600;
       line-height: 1.8;
       color: rgba(255,255,255,0.55);
       margin-bottom: 32px;
@@ -618,13 +637,13 @@
       justify-content: space-between;
     }
 
-    .footer-copy { font-size: 12px; color: var(--dark-muted); font-weight: 300; }
+    .footer-copy { font-size: 12px; color: var(--dark-muted); font-weight: 500; }
 
     .footer-cols { display: flex; gap: 52px; align-items: center; }
 
     .footer-col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark); margin-bottom: 5px; }
 
-    .footer-col-value { font-size: 12px; color: var(--dark-muted); font-weight: 300; }
+    .footer-col-value { font-size: 12px; color: var(--dark-muted); font-weight: 500; }
 
     .footer-socials { display: flex; gap: 14px; }
 
@@ -697,15 +716,6 @@
       background: rgba(53,97,224,0.08);
       color: var(--accent);
       border-color: rgba(53,97,224,0.25);
-    }
-
-    .certs-block { margin-top: 52px; }
-
-    .certs-heading {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 20px;
     }
 
     .cert-item {
@@ -808,22 +818,23 @@
 
     .print-contact-line {
       display: flex;
-      gap: 0;
+      flex-wrap: wrap;
+      gap: 3px 16px;
       font-size: 10px;
       color: var(--dark-muted);
     }
 
-    .print-contact-line span + span::before { content: ' · '; }
+    .print-contact-line i { margin-right: 4px; font-size: 9px; }
 
     @media print {
-      @page { size: A4; margin: 15mm 20mm; }
+      @page { size: A4; margin: 0 20mm; }
 
       #nav, #device-toggle, .nav-drawer, #pdf-btn,
       #footer, #contact, .hero-buttons, .hero-subtitle, .hero-hello { display: none !important; }
 
-      body { background: white !important; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white !important; font-size: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0 0 12mm !important; box-sizing: border-box !important; }
 
-      #about { padding-top: 0 !important; min-height: unset !important; background: none !important; }
+      #about { padding-top: 14mm !important; min-height: unset !important; background: none !important; }
       #about::before { display: none !important; }
       #projects { background: white !important; }
 
@@ -852,7 +863,7 @@
       .hero-bio { margin-top: 10px !important; }
       .hero-bio p { font-size: 9px !important; line-height: 1.6 !important; max-width: none !important; margin-bottom: 2px !important; }
 
-      .section { padding: 0 0 16px !important; max-width: none !important; }
+      .section { padding: 12mm 0 16px !important; max-width: none !important; }
       .section-label { display: none !important; }
       .section-title { font-size: 15px !important; margin-bottom: 12px !important; padding-bottom: 5px !important; border-bottom: 1.5px solid var(--dark) !important; }
 
@@ -868,10 +879,10 @@
       .timeline-tags { margin-top: 5px !important; gap: 4px !important; }
       .tag { font-size: 7px !important; padding: 2px 7px !important; }
 
+      #skills .section { page-break-inside: avoid !important; }
       .skills-grid { gap: 4px !important; }
       .skill-pill { font-size: 8.5px !important; padding: 3px 9px !important; }
-      .certs-block { margin-top: 12px !important; }
-      .certs-heading { font-size: 13px !important; margin-bottom: 8px !important; }
+      #certs .section-title { font-size: 13px !important; margin-bottom: 8px !important; }
       .cert-item { padding: 7px 12px !important; max-width: none !important; }
       .cert-link { display: none !important; }
       .cert-name { font-size: 10px !important; }
@@ -955,7 +966,7 @@
       <div class="nav-square"></div>
       <span class="nav-name">Vanessa</span>
       <span class="nav-sep">/</span>
-      <span class="nav-role">Operation Manager</span>
+      <span class="nav-role">Ops + AI Collaboration</span>
     </div>
     <div class="nav-right">
       <ul class="nav-links">
@@ -963,7 +974,7 @@
         <li><a href="#resume"              data-i18n="nav.resume">履歷</a></li>
         <li><a href="#skills"              data-i18n="nav.skills">技能</a></li>
         <li><a href="#certs"               data-i18n="nav.certs">證照</a></li>
-        <li><a href="#projects"            data-i18n="nav.projects">代表案例</a></li>
+        <li><a href="#projects"            data-i18n="nav.projects">精選專案</a></li>
         <li><a href="#contact"             data-i18n="nav.contact">聯繫</a></li>
       </ul>
       <div class="lang-switcher" id="lang-switcher">
@@ -989,7 +1000,7 @@
     <a href="#resume"   onclick="closeDrawer()" data-i18n="nav.resume">履歷</a>
     <a href="#skills"   onclick="closeDrawer()" data-i18n="nav.skills">技能</a>
     <a href="#certs"    onclick="closeDrawer()" data-i18n="nav.certs">證照</a>
-    <a href="#projects" onclick="closeDrawer()" data-i18n="nav.projects">代表案例</a>
+    <a href="#projects" onclick="closeDrawer()" data-i18n="nav.projects">精選專案</a>
     <a href="#contact"  onclick="closeDrawer()" data-i18n="nav.contact">聯繫</a>
   </div>
 
@@ -1002,7 +1013,10 @@
           <div class="profile-photo">
             <img src="assets/photo.jpeg" alt="Vanessa">
           </div>
-          <div class="profile-name">Vanessa Huang</div>
+          <div class="profile-name">
+            <span class="name-zh">黃思菡</span>
+            <span class="name-en">Vanessa Huang</span>
+          </div>
           <div class="profile-divider"></div>
           <div class="profile-title">Operation Manager</div>
           <div class="profile-socials">
@@ -1017,20 +1031,20 @@
         <p class="hero-subtitle" data-i18n="hero.subtitle">關於我與我的工作</p>
         <div class="hero-buttons">
           <a href="#resume"   class="btn btn-primary" data-i18n="hero.btn1">查看履歷</a>
-          <a href="#projects" class="btn btn-outline"  data-i18n="hero.btn2">代表案例</a>
+          <a href="#projects" class="btn btn-outline"  data-i18n="hero.btn2">精選專案</a>
         </div>
         <div class="print-header">
-          <div class="print-name">Vanessa Huang</div>
+          <div class="print-name">黃思菡 <span style="font-size:18px;font-weight:500;letter-spacing:0">Vanessa Huang</span></div>
           <div class="print-role-line">Operations Manager</div>
           <div class="print-contact-line">
-            <span>sugars0715@gmail.com</span>
-            <span>linkedin.com/in/vanessahuang0715</span>
-            <span data-i18n="contact.location">台灣 台北市 · 遠端優先</span>
+            <span><i class="fa-regular fa-envelope"></i>sugars0715@gmail.com</span>
+            <span><i class="fa-brands fa-linkedin-in"></i>linkedin.com/in/vanessahuang0715</span>
+            <span><i class="fa-solid fa-location-dot"></i><span data-i18n="contact.location">台灣 台北市 · 遠端優先</span></span>
           </div>
         </div>
         <div class="hero-bio">
-          <p data-i18n="hero.bio1">語音社交 App 本地運營 OM，7 年數位運營經歷，專精高付費用戶維護、主播管理與平台本地化策略。曾任 Lita 台灣市場唯一本地運營負責人，全程主導完整運營週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場運營體系。</p>
-          <p data-i18n="hero.bio2">親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求遠端全職 Operations Manager 或相關職缺。</p>
+          <p data-i18n="hero.bio1">7 年數位營運經歷，橫跨 B 端供給側夥伴管理（陪玩師招募、培訓、日常維護）與 C 端用戶營運，擅長多渠道溝通策略規劃與高付費用戶維護。曾任 Lita 台灣市場唯一本地營運負責人，全程主導完整營運週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場營運體系。</p>
+          <p data-i18n="hero.bio2">親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求全職 Operations Manager 或相關職缺，可遠端優先。</p>
         </div>
       </div>
 
@@ -1051,13 +1065,15 @@
           <div class="timeline-period" data-i18n="lita.period">2022年3月 — 2026年5月</div>
           <h3 class="timeline-role"    data-i18n="lita.role">Operations Manager</h3>
           <div class="timeline-company" data-i18n="lita.company">Lita · 語音社交娛樂平台</div>
-          <div class="timeline-desc"   data-i18n-html="lita.desc">自台灣市場落地起擔任唯一本地運營負責人，全程主導完整運營週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域運營體系。<br><br><strong>▶ 職責範疇</strong><br>統籌用戶招募、VIP 維護、陪玩師管理、語音房活躍、活動企劃與平台功能提案；獨立建立多套本地化運營體系（SOP、公告、文案、用戶規範），部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房 ROAS 從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。</div>
+          <div class="timeline-desc"   data-i18n-html="lita.desc">自台灣市場落地起擔任唯一本地營運負責人，全程主導完整營運週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域營運體系。<br><br><strong>▶ 職責範疇</strong><br>統籌 B 端陪玩師夥伴管理（招募、審核、培訓、日常維護）與 C 端用戶營運（VIP 維護、語音房活躍、活動企劃）；獨立規劃並執行多渠道溝通策略，涵蓋平台公告、推播文案、用戶規範與功能提案，部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房活動效益從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。</div>
           <div class="timeline-tags" data-i18n-html="lita.tags">
-            <span class="tag">用戶運營</span>
+            <span class="tag">用戶營運</span>
             <span class="tag">大R維運</span>
             <span class="tag">社群管理</span>
             <span class="tag">語音直播</span>
-            <span class="tag">跨境運營</span>
+            <span class="tag">跨境營運</span>
+            <span class="tag">供給側夥伴管理</span>
+            <span class="tag">溝通策略</span>
           </div>
         </article>
 
@@ -1067,7 +1083,7 @@
           <div class="timeline-period" data-i18n="sw.period">2019年4月 — 2021年11月</div>
           <h3 class="timeline-role"    data-i18n="sw.role">Membership Marketing Project Manager</h3>
           <div class="timeline-company" data-i18n="sw.company">Soft-World Intl. Corp. · MyCard 遊戲點數卡</div>
-          <div class="timeline-desc"   data-i18n-html="sw.desc">MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・以 GA + Google Sheets 建立每日自動化流量監測。</div>
+          <div class="timeline-desc"   data-i18n-html="sw.desc">MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・以 GA + Google Sheets 建立每日自動化流量監測。</div>
           <div class="timeline-tags" data-i18n-html="sw.tags">
             <span class="tag">行銷企劃</span>
             <span class="tag">數據分析</span>
@@ -1082,7 +1098,7 @@
           <div class="timeline-period" data-i18n="cit.period">2018年3月 — 2019年4月</div>
           <h3 class="timeline-role"    data-i18n="cit.role">Event Planner</h3>
           <div class="timeline-company" data-i18n="cit.company">財團法人中華民國運輸學會</div>
-          <div class="timeline-desc"   data-i18n-html="cit.desc">・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。</div>
+          <div class="timeline-desc"   data-i18n-html="cit.desc">・在任期內主導完成學會官網建置（www.cit.org.tw），為後續學術活動數位化奠定基礎。<br>・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。</div>
           <div class="timeline-tags" data-i18n-html="cit.tags">
             <span class="tag">活動策劃</span>
             <span class="tag">數位化轉型</span>
@@ -1095,7 +1111,7 @@
           <div class="timeline-period" data-i18n="kinder.period">2016年10月 — 2018年3月</div>
           <h3 class="timeline-role"    data-i18n="kinder.role">音樂老師</h3>
           <div class="timeline-company" data-i18n="kinder.company">夏綠蒂幼兒園（東森YOYO分園）</div>
-          <div class="timeline-desc"   data-i18n-html="kinder.desc">・擔任園內音樂老師，同時兼職 0–10 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。</div>
+          <div class="timeline-desc"   data-i18n-html="kinder.desc">・擔任園內音樂老師，同時兼職 10+ 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。</div>
           <div class="timeline-tags" data-i18n-html="kinder.tags">
             <span class="tag">音樂教育</span>
             <span class="tag">活動策劃</span>
@@ -1120,6 +1136,8 @@
         <span class="skill-pill">敏捷專案管理</span>
         <span class="skill-pill">產品本地化</span>
         <span class="skill-pill">策略營運</span>
+        <span class="skill-pill">溝通策略規劃</span>
+        <span class="skill-pill">夥伴關係管理</span>
         <span class="skill-pill">Google Analytics</span>
         <span class="skill-pill">Figma</span>
         <span class="skill-pill">Trello</span>
@@ -1127,18 +1145,22 @@
         <span class="skill-pill">Microsoft Visual Studio Code</span>
       </div>
 
-      <div class="certs-block" id="certs">
-        <h3 class="certs-heading" data-i18n="cert.heading">認證證照</h3>
-        <div class="cert-item">
-          <div class="cert-logo"><img src="assets/cert-ga.png" alt="Google Analytics Certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">Google Analytics Certificate</div>
-            <div class="cert-meta">Google</div>
-          </div>
-          <a href="https://edu.google.accredible.com/f6ed4533-c990-4862-8f0c-8968ab672df6" target="_blank" rel="noopener" class="cert-link" data-i18n="cert.view">查看證書</a>
-        </div>
-      </div>
+    </div>
+  </section>
 
+  <!-- CERTS -->
+  <section id="certs">
+    <div class="section">
+      <div class="section-label" data-i18n="cert.label">Credentials</div>
+      <h2 class="section-title" data-i18n="cert.heading">認證證照</h2>
+      <div class="cert-item">
+        <div class="cert-logo"><img src="assets/cert-ga.png" alt="Google Analytics Certificate"></div>
+        <div class="cert-body">
+          <div class="cert-name">Google Analytics Certificate</div>
+          <div class="cert-meta">Google</div>
+        </div>
+        <a href="https://edu.google.accredible.com/f6ed4533-c990-4862-8f0c-8968ab672df6" target="_blank" rel="noopener" class="cert-link" data-i18n="cert.view">查看證書</a>
+      </div>
     </div>
   </section>
 
@@ -1146,19 +1168,35 @@
   <section id="projects" style="background:#F5F1ED;">
     <div class="section">
       <div class="section-label" data-i18n="proj.label">Selected Work</div>
-      <h2 class="section-title"  data-i18n="proj.title">代表案例</h2>
+      <h2 class="section-title"  data-i18n="proj.title">精選專案</h2>
       <div class="projects-grid">
 
         <div class="project-card">
+          <div class="card-bg" style="background-image:url('assets/featured-project-01.png')"></div>
           <div class="project-num">01</div>
           <h3 class="project-title" data-i18n="p1.title">陪玩師資源調度自動化</h3>
-          <p class="project-desc"  data-i18n="p1.desc">接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程，以 Google Sheets 自動化模組降低人工成本。陪玩師 DAU 穩定至 400+（峰值 500+），語音房供給時長成長 56%。</p>
+          <p class="project-desc"  data-i18n="p1.desc">接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程；自製客製化 Web App（串接 Firebase SDK），供陪玩師自助填報班表，一鍵整合排班與公告複製，大幅降低人工溝通成本。語音房供給時長成長 56%。</p>
         </div>
 
         <div class="project-card">
+          <div class="card-bg" style="background-image:url('assets/featured-project-02.png')"></div>
           <div class="project-num">02</div>
           <h3 class="project-title" data-i18n="p2.title">Claude Code 多 Agent 系統</h3>
-          <p class="project-desc"  data-i18n="p2.desc">主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常運營任務，涵蓋數據摘要、推播文案生成與履歷網站開發等應用場景。</p>
+          <p class="project-desc"  data-i18n="p2.desc">主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常營運任務，涵蓋數據摘要、推播文案生成、日報自動生成、競品研究整理與活動企劃輔助等應用場景。</p>
+        </div>
+
+        <div class="project-card">
+          <div class="card-bg" style="background-image:url('assets/featured-project-03.png')"></div>
+          <div class="project-num">03</div>
+          <h3 class="project-title" data-i18n="p3.title">LINE OA 高付費用戶召回系統</h3>
+          <p class="project-desc"  data-i18n="p3.desc">自建 LINE OA 核心付費用戶維護機制，建立專屬召回流程與分層溝通策略；年均推播點擊率 40.8%，峰值 66.4%，核心付費用戶建聯率達 66%，有效延長高價值用戶生命週期。</p>
+        </div>
+
+        <div class="project-card">
+          <div class="card-bg" style="background-image:url('assets/featured-project-04.png')"></div>
+          <div class="project-num">04</div>
+          <h3 class="project-title" data-i18n="p4.title">語音房活動設計與效益優化</h3>
+          <p class="project-desc"  data-i18n="p4.desc">透過活動玩法迭代與場景策略重設計，在不依賴任何產品功能更新的前提下，將語音房活動效益從 82% 提升至 96%（+14pp）；主力活動單日付費用戶達平日均值 2.5 倍。</p>
         </div>
 
       </div>
@@ -1186,7 +1224,7 @@
           </div>
         </div>
         <div>
-          <p class="contact-note" data-i18n="contact.note">目前開放接洽遠端全職 Operation Manager 及相關運營職缺。如有合適機會，歡迎來信。</p>
+          <p class="contact-note" data-i18n="contact.note">目前開放接洽遠端全職 Operation Manager 及相關營運職缺。如有合適機會，歡迎來信。</p>
           <a href="mailto:sugars0715@gmail.com" class="btn btn-primary" data-i18n="contact.btn">寫信給我</a>
         </div>
       </div>
@@ -1218,15 +1256,15 @@
   ============================================ */
   const i18n = {
     TW: {
-      'meta.title': 'Vanessa Huang · 運營負責人',
-      'meta.desc':  '7 年以上數位運營經歷，深耕語音社交 App 生態。前 Lita 台灣區運營負責人，擅長大R維運與陪玩師社群管理。',
+      'meta.title': 'Vanessa Huang · 營運負責人',
+      'meta.desc':  '7 年以上數位營運經歷，深耕語音社交 App 生態。前 Lita 台灣區營運負責人，擅長大R維運與陪玩師社群管理。',
       'nav.about':   '關於我',   'nav.resume': '履歷',
       'nav.skills':  '技能',     'nav.certs':  '證照',
       'nav.projects':'精選專案', 'nav.contact':'聯繫',
       'hero.subtitle':'關於我與我的工作',
       'hero.btn1':   '查看履歷', 'hero.btn2':'精選專案',
-      'hero.bio1':   '語音社交 App 本地運營 OM，7 年數位運營經歷，專精高付費用戶維護、主播管理與平台本地化策略。曾任 Lita 台灣市場唯一本地運營負責人，全程主導完整運營週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場運營體系。',
-      'hero.bio2':   '親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求遠端全職 Operations Manager 或相關職缺。',
+      'hero.bio1':   '7 年數位營運經歷，橫跨 B 端供給側夥伴管理（陪玩師招募、培訓、日常維護）與 C 端用戶營運，擅長多渠道溝通策略規劃與高付費用戶維護。曾任 Lita 台灣市場唯一本地營運負責人，全程主導完整營運週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場營運體系。',
+      'hero.bio2':   '親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求全職 Operations Manager 或相關職缺，可遠端優先。',
       'exp.label':   'Experience', 'exp.title':'工作經歷',
       'proj.label':  'Selected Work', 'proj.title':'精選專案',
       'contact.label':'Get In Touch', 'contact.title':'聯繫我',
@@ -1234,47 +1272,52 @@
       'lita.period': '2022年3月 — 2026年5月',
       'lita.role':   'Operations Manager',
       'lita.company':'Lita · 語音社交娛樂平台',
-      'lita.desc':   '自台灣市場落地起擔任唯一本地運營負責人，全程主導完整運營週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域運營體系。<br><br><strong>▶ 職責範疇</strong><br>統籌用戶招募、VIP 維護、陪玩師管理、語音房活躍、活動企劃與平台功能提案；獨立建立多套本地化運營體系（SOP、公告、文案、用戶規範），部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房 ROAS 從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。',
-      'lita.tags':   '<span class="tag">用戶運營</span><span class="tag">大R維運</span><span class="tag">社群管理</span><span class="tag">語音直播</span><span class="tag">跨境運營</span>',
+      'lita.desc':   '自台灣市場落地起擔任唯一本地營運負責人，全程主導完整營運週期（2022–2026），期間延伸至馬來西亞華人市場，從 0 到 1 建立雙市場區域營運體系。<br><br><strong>▶ 職責範疇</strong><br>統籌 B 端陪玩師夥伴管理（招募、審核、培訓、日常維護）與 C 端用戶營運（VIP 維護、語音房活躍、活動企劃）；獨立規劃並執行多渠道溝通策略，涵蓋平台公告、推播文案、用戶規範與功能提案，部分成果成為全大區參考範本。<br><br><strong>▶ 核心成果</strong><br>・核心付費用戶建聯率 66%，透過 LINE OA 自建高付費核心用戶召回機制，年均推播點擊率 40.8%，峰值 66.4%。<br>・語音房活動效益從 82% 提升至 96%（+14pp），純靠活動設計與玩法迭代，不依賴產品功能更新。<br>・提出 35 項平台功能需求，25 項成功上線（採納率 71%）。<br>・善用 AI 工具與自動化工作流，高重複流程系統化，人工作業時間最高減少 80%。<br>・20+ 位 KOL 合作（含百萬訂閱 YouTuber），主力活動單日付費用戶達平日均值 2.5 倍。',
+      'lita.tags':   '<span class="tag">用戶營運</span><span class="tag">大R維運</span><span class="tag">社群管理</span><span class="tag">語音直播</span><span class="tag">跨境營運</span><span class="tag">供給側夥伴管理</span><span class="tag">溝通策略</span>',
       'sw.period':   '2019年4月 — 2021年11月',
       'sw.role':     'Membership Marketing Project Manager',
       'sw.company':  'Soft-World Intl. Corp. · MyCard 遊戲點數卡',
-      'sw.desc':     'MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・以 GA + Google Sheets 建立每日自動化流量監測。',
+      'sw.desc':     'MyCard 為台港澳最大遊戲點數卡平台，提供千款數位內容服務。<br><br><strong>▶ 職責範疇</strong><br>負責會員行銷策略規劃、跨部門活動統籌與對外合作開發，管理 4 人團隊。<br><br><strong>▶ 核心成果</strong><br>・擔任對外主要窗口，促成 LINE、台新銀行、蝦皮等多元異業合作。<br>・統籌月均近百件會員活動，主導企劃、受眾分群與上線進度。<br>・LINE OA 月均好友成長 697%，推播最高 CTR 96%。<br>・活躍消費會員月均成長 46%，主力活動頁月均 PV 成長 614%，單一頁面可達百萬流量。<br>・參與 22+ 項功能開發，近兩年會員登入數成長逾 33%。<br>・以 GA + Google Sheets 建立每日自動化流量監測。',
       'sw.tags':     '<span class="tag">行銷企劃</span><span class="tag">數據分析</span><span class="tag">LINE OA</span><span class="tag">會員成長</span>',
       'cit.period':  '2018年3月 — 2019年4月',
       'cit.role':    'Event Planner',
       'cit.company': '財團法人中華民國運輸學會',
-      'cit.desc':    '・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。',
+      'cit.desc':    '・在任期內主導完成學會官網建置（www.cit.org.tw），為後續學術活動數位化奠定基礎。<br>・首創數位化報名機制，整合金流串接（綠界科技）、電子收據與 QR Code 身分驗證，大幅降低人工作業成本。<br>・統籌大型學術研討會，單日參與人次逾千，協辦單位涵蓋多個政府機關。<br>・負責季刊《運輸學刊》出刊排版及會員行銷經營。',
       'cit.tags':    '<span class="tag">活動策劃</span><span class="tag">數位化轉型</span>',
       'kinder.period':  '2016年10月 — 2018年3月',
       'kinder.role':    '音樂老師',
       'kinder.company': '夏綠蒂幼兒園（東森YOYO分園）',
-      'kinder.desc':    '・擔任園內音樂老師，同時兼職 0–10 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。',
+      'kinder.desc':    '・擔任園內音樂老師，同時兼職 10+ 名私人家教，教學年齡層涵蓋 2–60 歲。<br>・定期籌辦音樂發表會，負責備課與學生成果展示規劃。',
       'kinder.tags':    '<span class="tag">音樂教育</span><span class="tag">活動策劃</span>',
       'p1.title':    '陪玩師資源調度自動化',
-      'p1.desc':     '接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程，以 Google Sheets 自動化模組降低人工成本。陪玩師 DAU 穩定至 400+（峰值 500+），語音房供給時長成長 56%。',
+      'p1.desc':     '接手台馬大區合併，從零重建陪玩師招募、審核、培訓至排班調度全流程；自製客製化 Web App（串接 Firebase SDK），供陪玩師自助填報班表，一鍵整合排班與公告複製，大幅降低人工溝通成本。語音房供給時長成長 56%。',
       'p2.title':    'Claude Code 多 Agent 系統',
-      'p2.desc':     '主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常運營任務，涵蓋數據摘要、推播文案生成與履歷網站開發等應用場景。',
-      'contact.note':    '目前開放接洽遠端全職 Operation Manager 及相關運營職缺。如有合適機會，歡迎來信。',
+      'p2.desc':     '主動搭建 Claude Code 多 Agent 協作系統，整合 AI 工作流於日常營運任務，涵蓋數據摘要、推播文案生成、日報自動生成、競品研究整理與活動企劃輔助等應用場景。',
+      'p3.title':    'LINE OA 高付費用戶召回系統',
+      'p3.desc':     '自建 LINE OA 核心付費用戶維護機制，建立專屬召回流程與分層溝通策略；年均推播點擊率 40.8%，峰值 66.4%，核心付費用戶建聯率達 66%，有效延長高價值用戶生命週期。',
+      'p4.title':    '語音房活動設計與效益優化',
+      'p4.desc':     '透過活動玩法迭代與場景策略重設計，在不依賴任何產品功能更新的前提下，將語音房活動效益從 82% 提升至 96%（+14pp）；主力活動單日付費用戶達平日均值 2.5 倍。',
+      'contact.note':    '目前開放接洽遠端全職 Operation Manager 及相關營運職缺。如有合適機會，歡迎來信。',
       'contact.btn':     '寫信給我',
       'contact.location':'台灣 台北市 · 遠端優先',
+      'cert.label':    'Credentials',
       'cert.heading':  '認證證照',
       'cert.view':     '查看證書',
       'skills.label':  'Skills',
       'skills.title':  '專業技能',
-      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">專案管理</span><span class="skill-pill">數據驅動決策</span><span class="skill-pill">流程自動化</span><span class="skill-pill">高價值客戶管理</span><span class="skill-pill">敏捷專案管理</span><span class="skill-pill">產品本地化</span><span class="skill-pill">策略營運</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">專案管理</span><span class="skill-pill">數據驅動決策</span><span class="skill-pill">流程自動化</span><span class="skill-pill">高價值客戶管理</span><span class="skill-pill">敏捷專案管理</span><span class="skill-pill">產品本地化</span><span class="skill-pill">策略營運</span><span class="skill-pill">溝通策略規劃</span><span class="skill-pill">夥伴關係管理</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
     },
 
     CN: {
       'meta.title': 'Vanessa Huang · 运营负责人',
-      'meta.desc':  '7 年以上数字化运营经验，深耕语音社交 App 生态。前 Lita 台湾区运营负责人，擅长大R维稳与陪玩师社群管理。',
+      'meta.desc':  '7 年以上数字化运营经验，深耕语音社交 App 生态。前 Lita 台湾区运营负责人，擅长大R维运与陪玩师社群管理。',
       'nav.about':   '关于我',   'nav.resume': '履历',
       'nav.skills':  '技能',     'nav.certs':  '证照',
       'nav.projects':'精选项目', 'nav.contact':'联系',
       'hero.subtitle':'关于我与我的工作',
       'hero.btn1':   '查看履历', 'hero.btn2':'精选项目',
-      'hero.bio1':   '语音社交 App 本地运营 OM，7 年数字化运营经验，专精高付费用户维护、主播管理与平台本地化策略。曾任 Lita 台湾市场唯一本地运营负责人，全程主导完整运营周期（2022–2026），并延伸至马来西亚华人市场建立双市场运营体系。',
-      'hero.bio2':   '亲手搭建 Claude Code 多 Agent 协作系统，将高重复流程系统化，人工作业时间减少 80%。目前寻求远程全职 Operations Manager 或相关职位。',
+      'hero.bio1':   '7 年数字化运营经历，横跨 B 端供给侧伙伴管理（陪玩师招募、培训、日常维护）与 C 端用户运营，擅长多渠道沟通策略规划与高付费用户维护。曾任 Lita 台湾市场唯一本地运营负责人，全程主导完整运营周期（2022–2026），并延伸至马来西亚华人市场建立双市场运营体系。',
+      'hero.bio2':   '亲手搭建 Claude Code 多 Agent 协作系统，将高重复流程系统化，人工作业时间减少 80%。目前寻求全职 Operations Manager 或相关职位，可远程优先。',
       'exp.label':   'Experience', 'exp.title':'工作经历',
       'proj.label':  'Selected Work', 'proj.title':'精选项目',
       'contact.label':'Get In Touch', 'contact.title':'联系我',
@@ -1282,35 +1325,40 @@
       'lita.period': '2022年3月 — 2026年5月',
       'lita.role':   'Operations Manager',
       'lita.company':'Lita · 语音社交娱乐平台',
-      'lita.desc':   '自台湾市场落地起担任唯一本地运营负责人，全程主导完整运营周期（2022–2026），期间延伸至马来西亚华人市场，从 0 到 1 建立双市场区域运营体系。<br><br><strong>▶ 职责范畴</strong><br>统筹用户招募、VIP 维护、陪玩师管理、语音房活跃、活动企划与平台功能提案；独立建立多套本地化运营体系（SOP、公告、文案、用户规范），部分成果成为全大区参考范本。<br><br><strong>▶ 核心成果</strong><br>・核心付费用户建联率 66%，透过 LINE OA 自建高付费核心用户召回机制，年均推播点击率 40.8%，峰值 66.4%。<br>・语音房 ROAS 从 82% 提升至 96%（+14pp），纯靠活动设计与玩法迭代，不依赖产品功能更新。<br>・提出 35 项平台功能需求，25 项成功上线（采纳率 71%）。<br>・善用 AI 工具与自动化工作流，高重复流程系统化，人工作业时间最高减少 80%。<br>・20+ 位 KOL 合作（含百万订阅 YouTuber），主力活动单日付费用户达平日均值 2.5 倍。',
-      'lita.tags':   '<span class="tag">用户运营</span><span class="tag">大R维稳</span><span class="tag">社群管理</span><span class="tag">语音直播</span><span class="tag">跨境运营</span>',
+      'lita.desc':   '自台湾市场落地起担任唯一本地运营负责人，全程主导完整运营周期（2022–2026），期间延伸至马来西亚华人市场，从 0 到 1 建立双市场区域运营体系。<br><br><strong>▶ 职责范畴</strong><br>统筹 B 端陪玩师伙伴管理（招募、审核、培训、日常维护）与 C 端用户运营（VIP 维护、语音房活跃、活动企划）；独立规划并执行多渠道沟通策略，涵盖平台公告、推播文案、用户规范与功能提案，部分成果成为全大区参考范本。<br><br><strong>▶ 核心成果</strong><br>・核心付费用户建联率 66%，透过 LINE OA 自建高付费核心用户召回机制，年均推播点击率 40.8%，峰值 66.4%。<br>・语音房活动效益从 82% 提升至 96%（+14pp），纯靠活动设计与玩法迭代，不依赖产品功能更新。<br>・提出 35 项平台功能需求，25 项成功上线（采纳率 71%）。<br>・善用 AI 工具与自动化工作流，高重复流程系统化，人工作业时间最高减少 80%。<br>・20+ 位 KOL 合作（含百万订阅 YouTuber），主力活动单日付费用户达平日均值 2.5 倍。',
+      'lita.tags':   '<span class="tag">用户运营</span><span class="tag">大R维运</span><span class="tag">社群管理</span><span class="tag">语音直播</span><span class="tag">跨境运营</span><span class="tag">供给侧伙伴管理</span><span class="tag">沟通策略</span>',
       'sw.period':   '2019年4月 — 2021年11月',
       'sw.role':     'Membership Marketing Project Manager',
       'sw.company':  'Soft-World Intl. Corp. · MyCard 游戏点数卡',
-      'sw.desc':     'MyCard 为台港澳最大游戏点数卡平台，提供千款数字内容服务。<br><br><strong>▶ 职责范畴</strong><br>负责会员营销策略规划、跨部门活动统筹与对外合作开发，管理 4 人团队。<br><br><strong>▶ 核心成果</strong><br>・统筹月均近百件会员活动，主导企划、受众分群与上线进度。<br>・LINE OA 月均好友成长 697%，推播最高 CTR 96%。<br>・活跃消费会员月均成长 46%，主力活动页月均 PV 成长 614%，单一页面可达百万流量。<br>・参与 22+ 项功能开发，近两年会员登入数成长逾 33%。<br>・担任对外主要窗口，促成 LINE、台新银行、虾皮等多元异业合作。<br>・以 GA + Google Sheets 建立每日自动化流量监测。',
+      'sw.desc':     'MyCard 为台港澳最大游戏点数卡平台，提供千款数字内容服务。<br><br><strong>▶ 职责范畴</strong><br>负责会员营销策略规划、跨部门活动统筹与对外合作开发，管理 4 人团队。<br><br><strong>▶ 核心成果</strong><br>・担任对外主要窗口，促成 LINE、台新银行、虾皮等多元异业合作。<br>・统筹月均近百件会员活动，主导企划、受众分群与上线进度。<br>・LINE OA 月均好友成长 697%，推播最高 CTR 96%。<br>・活跃消费会员月均成长 46%，主力活动页月均 PV 成长 614%，单一页面可达百万流量。<br>・参与 22+ 项功能开发，近两年会员登入数成长逾 33%。<br>・以 GA + Google Sheets 建立每日自动化流量监测。',
       'sw.tags':     '<span class="tag">营销企划</span><span class="tag">数据分析</span><span class="tag">LINE OA</span><span class="tag">会员成长</span>',
       'cit.period':  '2018年3月 — 2019年4月',
       'cit.role':    'Event Planner',
       'cit.company': '财团法人中华民国运输学会',
-      'cit.desc':    '・首创数字化报名机制，整合金流串接（绿界科技）、电子收据与 QR Code 身份验证，大幅降低人工作业成本。<br>・统筹大型学术研讨会，单日参与人次逾千，协办单位涵盖多个政府机关。<br>・负责季刊《运输学刊》出刊排版及会员营销经营。',
+      'cit.desc':    '・任职期间主导完成学会官网建置（www.cit.org.tw），为后续学术活动数字化奠定基础。<br>・首创数字化报名机制，整合金流串接（绿界科技）、电子收据与 QR Code 身份验证，大幅降低人工作业成本。<br>・统筹大型学术研讨会，单日参与人次逾千，协办单位涵盖多个政府机关。<br>・负责季刊《运输学刊》出刊排版及会员营销经营。',
       'cit.tags':    '<span class="tag">活动策划</span><span class="tag">数字化转型</span>',
       'kinder.period':  '2016年10月 — 2018年3月',
       'kinder.role':    '音乐老师',
       'kinder.company': '夏绿蒂幼儿园（东森YOYO分园）',
-      'kinder.desc':    '・担任园内音乐老师，同时兼职 0–10 名私人家教，教学年龄层涵盖 2–60 岁。<br>・定期筹办音乐发表会，负责备课与学生成果展示规划。',
+      'kinder.desc':    '・担任园内音乐老师，同时兼职 10+ 名私人家教，教学年龄层涵盖 2–60 岁。<br>・定期筹办音乐发表会，负责备课与学生成果展示规划。',
       'kinder.tags':    '<span class="tag">音乐教育</span><span class="tag">活动策划</span>',
       'p1.title':    '陪玩师资源调度自动化',
-      'p1.desc':     '接手台马大区合并，从零重建陪玩师招募、审核、培训至排班调度全流程，以 Google Sheets 自动化模块降低人工成本。陪玩师 DAU 稳定至 400+（峰值 500+），语音房供给时长成长 56%。',
+      'p1.desc':     '接手台马大区合并，从零重建陪玩师招募、审核、培训至排班调度全流程；自制定制化 Web App（接入 Firebase SDK），供陪玩师自助填报班表，一键整合排班与公告复制，大幅降低人工沟通成本。语音房供给时长成长 56%。',
       'p2.title':    'Claude Code 多 Agent 系统',
-      'p2.desc':     '主动搭建 Claude Code 多 Agent 协作系统，整合 AI 工作流于日常运营任务，涵盖数据摘要、推播文案生成与履历网站开发等应用场景。',
+      'p2.desc':     '主动搭建 Claude Code 多 Agent 协作系统，整合 AI 工作流于日常运营任务，涵盖数据摘要、推播文案生成、日报自动生成、竞品研究整理与活动企划辅助等应用场景。',
+      'p3.title':    'LINE OA 高付费用户召回系统',
+      'p3.desc':     '自建 LINE OA 核心付费用户维护机制，建立专属召回流程与分层沟通策略；年均推播点击率 40.8%，峰值 66.4%，核心付费用户建联率达 66%，有效延长高价值用户生命周期。',
+      'p4.title':    '语音房活动设计与效益优化',
+      'p4.desc':     '通过活动玩法迭代与场景策略重设计，在不依赖任何产品功能更新的前提下，将语音房活动效益从 82% 提升至 96%（+14pp）；主力活动单日付费用户达平日均值 2.5 倍。',
       'contact.note':    '目前开放接洽远程全职 Operation Manager 及相关运营职位。如有合适机会，欢迎来信。',
       'contact.btn':     '发邮件',
       'contact.location':'台湾 台北市 · 远程优先',
+      'cert.label':    'Credentials',
       'cert.heading':  '认证证照',
       'cert.view':     '查看证书',
       'skills.label':  'Skills',
       'skills.title':  '专业技能',
-      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">项目管理</span><span class="skill-pill">数据驱动决策</span><span class="skill-pill">流程自动化</span><span class="skill-pill">高价值客户管理</span><span class="skill-pill">敏捷项目管理</span><span class="skill-pill">产品本地化</span><span class="skill-pill">战略运营</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">项目管理</span><span class="skill-pill">数据驱动决策</span><span class="skill-pill">流程自动化</span><span class="skill-pill">高价值客户管理</span><span class="skill-pill">敏捷项目管理</span><span class="skill-pill">产品本地化</span><span class="skill-pill">战略运营</span><span class="skill-pill">沟通策略规划</span><span class="skill-pill">伙伴关系管理</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Microsoft Visual Studio Code</span>',
     },
 
     EN: {
@@ -1321,8 +1369,8 @@
       'nav.projects':'Projects', 'nav.contact':'Contact',
       'hero.subtitle':"Here's who I am & what I do",
       'hero.btn1':   'View Resume', 'hero.btn2':'Projects',
-      'hero.bio1':   'Voice & social app operations specialist with 7+ years of experience, focused on VIP retention, host community management, and platform localization. Former sole local Operations Manager at Lita Taiwan (2022–2026), with coverage extended to Malaysia\'s Chinese-speaking market.',
-      'hero.bio2':   'Built a Claude Code multi-agent automation system from scratch — cutting manual work by 80%. Open to remote full-time Operations Manager and related roles.',
+      'hero.bio1':   '7+ years in digital operations, spanning supply-side partner management (companion recruitment, training & daily support) and user-side operations, with expertise in multi-channel communication strategy and high-value user retention. Former sole local Operations Manager at Lita Taiwan (2022–2026); extended coverage to Malaysia\'s Chinese-speaking market to build a dual-market operations system.',
+      'hero.bio2':   'Built a Claude Code multi-agent automation system from scratch — cutting manual work by 80%. Open to full-time Operations Manager and related roles; remote-friendly.',
       'exp.label':   'Experience', 'exp.title':'Work Experience',
       'proj.label':  'Selected Work', 'proj.title':'Projects',
       'contact.label':'Get In Touch', 'contact.title':'Contact',
@@ -1330,8 +1378,8 @@
       'lita.period': 'Mar 2022 — May 2026',
       'lita.role':   'Taiwan Operations Manager',
       'lita.company':'Lita · Voice Social Entertainment App',
-      'lita.desc':   'Sole local Operations Manager for the Taiwan market from day one (2022–2026); extended to Malaysia\'s Chinese-speaking market, building a dual-market regional operations system from scratch.<br><br><strong>▶ Responsibilities</strong><br>Led end-to-end operations: user acquisition, VIP retention, host management, voice room engagement, campaign planning, and feature proposals. Built multiple localization systems (SOPs, announcements, copy, user guidelines) — some adopted as regional benchmarks.<br><br><strong>▶ Key Results</strong><br>・66% VIP contact rate via LINE OA; avg push CTR 40.8% (peak 66.4%).<br>・Voice room ROAS: 82% → 96% (+14pp) through activity design and iteration alone — no product updates required.<br>・25 of 35 feature proposals approved (71% adoption rate).<br>・AI-powered automation reduced manual work by up to 80%.<br>・20+ KOL campaigns (including YouTubers with 1M+ subscribers); peak daily paying users at 2.5× daily average.',
-      'lita.tags':   '<span class="tag">Operations</span><span class="tag">VIP Management</span><span class="tag">Community</span><span class="tag">Voice Streaming</span><span class="tag">Cross-border</span>',
+      'lita.desc':   'Sole local Operations Manager for the Taiwan market from day one (2022–2026); extended to Malaysia\'s Chinese-speaking market, building a dual-market regional operations system from scratch.<br><br><strong>▶ Responsibilities</strong><br>Oversaw supply-side partner management (companion recruitment, screening, training & daily support) and user-side operations (VIP retention, voice room engagement, campaign planning); independently planned and executed multi-channel communication strategies covering platform announcements, push copy, user guidelines, and feature proposals — some adopted as benchmarks across the region.<br><br><strong>▶ Key Results</strong><br>・66% VIP contact rate via LINE OA; avg push CTR 40.8% (peak 66.4%).<br>・Voice room event performance: 82% → 96% (+14pp) through activity design and iteration alone — no product updates required.<br>・25 of 35 feature proposals approved (71% adoption rate).<br>・AI-powered automation reduced manual work by up to 80%.<br>・20+ KOL campaigns (including YouTubers with 1M+ subscribers); peak daily paying users at 2.5× daily average.',
+      'lita.tags':   '<span class="tag">Operations</span><span class="tag">VIP Management</span><span class="tag">Community</span><span class="tag">Voice Streaming</span><span class="tag">Cross-border</span><span class="tag">Supply-Side Partner Mgmt</span><span class="tag">Communication Strategy</span>',
       'sw.period':   'Apr 2019 — Nov 2021',
       'sw.role':     'Membership Marketing Project Manager',
       'sw.company':  'Soft-World Intl. Corp. · MyCard Game Points',
@@ -1340,25 +1388,30 @@
       'cit.period':  'Mar 2018 — Apr 2019',
       'cit.role':    'Event Planner',
       'cit.company': 'Chinese Institute of Transportation',
-      'cit.desc':    '・Pioneered the first digital registration system integrating payment gateway (ECPay), e-receipts, and QR Code check-in — significantly reducing manual processing.<br>・Organized major academic conferences with 1,000+ single-day attendees; co-organized with multiple government agencies.<br>・Managed layout production for the quarterly journal and oversaw membership marketing.',
+      'cit.desc':    '・Led the complete build of the organization\'s official website (www.cit.org.tw), laying the digital foundation for future academic activities.<br>・Pioneered the first digital registration system integrating payment gateway (ECPay), e-receipts, and QR Code check-in — significantly reducing manual processing.<br>・Organized major academic conferences with 1,000+ single-day attendees; co-organized with multiple government agencies.<br>・Managed layout production for the quarterly journal and oversaw membership marketing.',
       'cit.tags':    '<span class="tag">Event Planning</span><span class="tag">Digital Transformation</span>',
       'kinder.period':  'Oct 2016 — Mar 2018',
       'kinder.role':    'Music Teacher',
       'kinder.company': 'Charlotte Kindergarten (YOYO Branch)',
-      'kinder.desc':    '・Music teacher at the kindergarten, simultaneously taking 0–10 private students across ages 2–60.<br>・Organized regular student recitals; managed lesson planning and performance showcase logistics.',
+      'kinder.desc':    '・Music teacher at the kindergarten, simultaneously taking on 10+ private students across ages 2–60.<br>・Organized regular student recitals; managed lesson planning and performance showcase logistics.',
       'kinder.tags':    '<span class="tag">Music Education</span><span class="tag">Event Planning</span>',
       'p1.title':    'Automated Companion Scheduling & Dispatch',
-      'p1.desc':     'Following the Taiwan-Malaysia regional merger, rebuilt the full companion lifecycle pipeline from scratch — recruitment, screening, onboarding, and automated scheduling via Google Sheets. Companion DAU stabilized at 400+ (peak 500+); voice room supply hours grew 56%.',
+      'p1.desc':     'Following the Taiwan-Malaysia regional merger, rebuilt the full companion lifecycle pipeline from scratch — recruitment, screening, onboarding, and scheduling; developed a custom Web App (integrated with Firebase SDK) for companions to self-submit availability, enabling one-click scheduling and announcement copy, significantly reducing manual coordination overhead. Voice room supply hours grew 56%.',
       'p2.title':    'Claude Code Multi-Agent Automation',
-      'p2.desc':     'Independently designed and built a Claude Code multi-agent collaboration system — integrating AI workflows into daily operations tasks including data summaries, push copy generation, and resume site development.',
+      'p2.desc':     'Independently designed and built a Claude Code multi-agent collaboration system — integrating AI workflows into daily operations tasks including data summaries, push copy generation, daily report automation, competitor research, and event planning assistance.',
+      'p3.title':    'LINE OA High-Value User Retention System',
+      'p3.desc':     'Built a LINE OA-based retention system for core paying users, establishing a dedicated recall workflow and tiered communication strategy; achieved an annual average push CTR of 40.8% (peak 66.4%) and a 66% connect rate among high-value users, effectively extending premium user lifetime.',
+      'p4.title':    'Voice Room Event Design & Performance Optimization',
+      'p4.desc':     'Through iterative event mechanics and strategic scene redesign — without relying on any product updates — improved voice room event performance from 82% to 96% (+14pp); key campaign days drove paying user volume to 2.5× the daily average.',
       'contact.note':    "Currently open to remote full-time Operation Manager and related roles. If you have an opportunity that fits, I'd love to hear from you.",
       'contact.btn':     'Say Hello',
       'contact.location':'Taipei, Taiwan · Open to Remote',
+      'cert.label':    'Credentials',
       'cert.heading':  'Certifications',
       'cert.view':     'View Certificate',
       'skills.label':  'Skills',
       'skills.title':  'Skills',
-      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">Project Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Business Process Automation</span><span class="skill-pill">High-Value Client Management</span><span class="skill-pill">Agile Project Management</span><span class="skill-pill">Product Localization</span><span class="skill-pill">Strategic Operations</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Visual Studio Code</span>',
+      'skills.items':  '<span class="skill-pill">Claude Code Subagents</span><span class="skill-pill">Project Management</span><span class="skill-pill">Data-Driven Decision Making</span><span class="skill-pill">Business Process Automation</span><span class="skill-pill">High-Value Client Management</span><span class="skill-pill">Agile Project Management</span><span class="skill-pill">Product Localization</span><span class="skill-pill">Strategic Operations</span><span class="skill-pill">Communication Strategy</span><span class="skill-pill">Partner Relationship Management</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Figma</span><span class="skill-pill">Trello</span><span class="skill-pill">Notion</span><span class="skill-pill">Visual Studio Code</span>',
     }
   };
 
@@ -1430,20 +1483,25 @@
   /* ============================================
      Active Nav on Scroll
   ============================================ */
-  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const spySectionIds = ['about', 'resume', 'skills', 'certs', 'projects', 'contact'];
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
-        });
+  function updateActiveNav() {
+    const trigger = window.scrollY + window.innerHeight * 0.25;
+    let current = spySectionIds[0];
+    for (const id of spySectionIds) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top + window.scrollY <= trigger) {
+        current = id;
       }
+    }
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
-  }, { threshold: 0.4 });
+  }
 
-  sections.forEach(s => observer.observe(s));
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 </script>
 
 </body>
