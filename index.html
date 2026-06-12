@@ -28,7 +28,7 @@
       --font-body: 'DM Sans', -apple-system, sans-serif;
       --nav-h: 64px;
       --split: 42%;
-      --card-w: 220px;
+      --card-w: 350px;
     }
 
     /* ============================================
@@ -297,34 +297,40 @@
     .hero-left-panel {
       flex: 0 0 var(--split);
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      position: relative;
+      align-self: stretch;
     }
 
     .profile-card {
-      flex-shrink: 0;
       width: var(--card-w);
       background: var(--card-bg);
       border: 1px solid rgba(255,255,255,0.7);
       box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
-      padding: 36px 28px 28px;
+      padding: 52px 36px 44px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       animation: cardIn 0.8s ease both;
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateX(-40%) translateY(-50%);
+      z-index: 2;
     }
 
     @keyframes cardIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateX(-40%) translateY(calc(-50% + 24px)); }
+      to   { opacity: 1; transform: translateX(-40%) translateY(-50%); }
     }
 
     .profile-photo {
-      width: 100px; height: 100px;
+      width: 185px; height: 185px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
       border: 3px solid var(--white);
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       position: relative;
@@ -341,8 +347,8 @@
       margin-bottom: 12px;
     }
 
-    .name-zh { display: block; font-size: 22px; font-weight: 700; line-height: 1.2; }
-    .name-en { display: block; font-size: 13px; font-weight: 400; color: var(--dark-muted); letter-spacing: 0.03em; margin-top: 3px; }
+    .name-zh { display: block; font-size: 28px; font-weight: 700; line-height: 1.2; }
+    .name-en { display: block; font-size: 14px; font-weight: 400; color: var(--dark-muted); letter-spacing: 0.03em; margin-top: 4px; }
 
     .profile-divider {
       width: 32px; height: 2px;
@@ -352,12 +358,12 @@
     }
 
     .profile-title {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--dark-muted);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .profile-socials { display: flex; gap: 14px; }
@@ -375,7 +381,7 @@
     /* Hero Content */
     .hero-content {
       flex: 1;
-      padding: 0 48px 0 56px;
+      padding: 0 48px 0 250px;
       max-width: 720px;
       animation: contentIn 0.9s 0.15s ease both;
     }
@@ -850,7 +856,7 @@
 
       .hero-left-panel { flex: 0 0 auto !important; width: auto !important; justify-content: flex-start !important; align-items: flex-start !important; }
 
-      .profile-card { width: auto !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; border: none !important; animation: none !important; align-items: flex-start !important; }
+      .profile-card { width: auto !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; border: none !important; animation: none !important; align-items: flex-start !important; position: static !important; left: auto !important; top: auto !important; transform: none !important; }
 
       .profile-photo { width: 72px !important; height: 72px !important; margin-bottom: 0 !important; box-shadow: none !important; border-color: var(--border) !important; }
 
@@ -869,14 +875,24 @@
 
       .timeline { padding-left: 0 !important; }
       .timeline::before, .timeline-dot { display: none !important; }
-      .timeline-item { margin-bottom: 10px !important; padding-bottom: 10px !important; page-break-inside: avoid; }
+      .timeline-item {
+        padding-top: 0 !important; margin-bottom: 10px !important; padding-bottom: 10px !important;
+        page-break-inside: avoid; break-inside: avoid;
+        display: grid !important;
+        grid-template-areas: "spacer spacer" "period period" "logo role" "logo company" "desc desc" "tags tags" !important;
+        grid-template-columns: 8mm 1fr !important;
+        column-gap: 3mm !important;
+        align-items: start !important;
+      }
+      .timeline-item::before { content: '' !important; display: block !important; height: 12mm !important; grid-area: spacer !important; }
+      .timeline-item:first-child::before { display: none !important; }
       .timeline-item:last-child { margin-bottom: 0 !important; padding-bottom: 0 !important; }
-      .timeline-logo { width: 30px !important; height: 30px !important; }
-      .timeline-period { font-size: 8px !important; }
-      .timeline-role { font-size: 13px !important; margin-bottom: 2px !important; }
-      .timeline-company { font-size: 9px !important; margin-bottom: 5px !important; }
-      .timeline-desc { font-size: 9px !important; line-height: 1.55 !important; max-width: none !important; }
-      .timeline-tags { margin-top: 5px !important; gap: 4px !important; }
+      .timeline-logo { position: static !important; right: auto !important; top: auto !important; width: 8mm !important; height: 8mm !important; grid-area: logo !important; align-self: start !important; margin-top: 1px !important; }
+      .timeline-period { font-size: 8px !important; grid-area: period !important; }
+      .timeline-role { font-size: 13px !important; margin-bottom: 2px !important; grid-area: role !important; }
+      .timeline-company { font-size: 9px !important; margin-bottom: 4px !important; grid-area: company !important; }
+      .timeline-desc { font-size: 9px !important; line-height: 1.55 !important; max-width: none !important; grid-area: desc !important; }
+      .timeline-tags { margin-top: 5px !important; gap: 4px !important; grid-area: tags !important; }
       .tag { font-size: 7px !important; padding: 2px 7px !important; }
 
       #skills { page-break-inside: avoid !important; break-inside: avoid !important; }
@@ -912,8 +928,8 @@
       #about::before { background: linear-gradient(to bottom, var(--beige) 50%, var(--white) 50%); }
 
       .hero-inner { flex-direction: column; padding: 48px 0 56px; align-items: center; gap: 40px; }
-      .hero-left-panel { flex: none; width: 100%; }
-      .profile-card { width: 200px; }
+      .hero-left-panel { flex: none; width: 100%; align-self: auto; }
+      .profile-card { width: 200px; position: static; left: auto; top: auto; transform: none; }
       .hero-content { padding: 0 24px; max-width: 100%; text-align: center; }
       .hero-buttons { justify-content: center; }
       .hero-bio p { max-width: 100%; }
@@ -932,8 +948,8 @@
     body.mobile-preview #preview-root .nav-hamburger { display: flex; }
     body.mobile-preview #preview-root #about::before { background: linear-gradient(to bottom, var(--beige) 50%, var(--white) 50%); }
     body.mobile-preview #preview-root .hero-inner { flex-direction: column; padding: 48px 0 56px; align-items: center; gap: 40px; }
-    body.mobile-preview #preview-root .hero-left-panel { flex: none; width: 100%; }
-    body.mobile-preview #preview-root .profile-card { width: 200px; }
+    body.mobile-preview #preview-root .hero-left-panel { flex: none; width: 100%; align-self: auto; }
+    body.mobile-preview #preview-root .profile-card { width: 200px; position: static; left: auto; top: auto; transform: none; }
     body.mobile-preview #preview-root .hero-content { padding: 0 24px; max-width: 100%; text-align: center; }
     body.mobile-preview #preview-root .hero-buttons { justify-content: center; }
     body.mobile-preview #preview-root .hero-bio p { max-width: 100%; }
@@ -976,7 +992,7 @@
         <li><a href="#resume"              data-i18n="nav.resume">履歷</a></li>
         <li><a href="#skills"              data-i18n="nav.skills">技能</a></li>
         <li><a href="#certs"               data-i18n="nav.certs">證照</a></li>
-        <li><a href="#projects"            data-i18n="nav.projects">精選專案</a></li>
+        <li><a href="#projects"            data-i18n="nav.projects">精選亮點</a></li>
         <li><a href="#contact"             data-i18n="nav.contact">聯繫</a></li>
       </ul>
       <div class="lang-switcher" id="lang-switcher">
@@ -1002,7 +1018,7 @@
     <a href="#resume"   onclick="closeDrawer()" data-i18n="nav.resume">履歷</a>
     <a href="#skills"   onclick="closeDrawer()" data-i18n="nav.skills">技能</a>
     <a href="#certs"    onclick="closeDrawer()" data-i18n="nav.certs">證照</a>
-    <a href="#projects" onclick="closeDrawer()" data-i18n="nav.projects">精選專案</a>
+    <a href="#projects" onclick="closeDrawer()" data-i18n="nav.projects">精選亮點</a>
     <a href="#contact"  onclick="closeDrawer()" data-i18n="nav.contact">聯繫</a>
   </div>
 
@@ -1033,7 +1049,7 @@
         <p class="hero-subtitle" data-i18n="hero.subtitle">關於我與我的工作</p>
         <div class="hero-buttons">
           <a href="#resume"   class="btn btn-primary" data-i18n="hero.btn1">查看履歷</a>
-          <a href="#projects" class="btn btn-outline"  data-i18n="hero.btn2">精選專案</a>
+          <a href="#projects" class="btn btn-outline"  data-i18n="hero.btn2">精選亮點</a>
         </div>
         <div class="print-header">
           <div class="print-name">黃思菡 <span style="font-size:18px;font-weight:500;letter-spacing:0">Vanessa Huang</span></div>
@@ -1169,8 +1185,8 @@
   <!-- PROJECTS -->
   <section id="projects" style="background:#F5F1ED;">
     <div class="section">
-      <div class="section-label" data-i18n="proj.label">Selected Work</div>
-      <h2 class="section-title"  data-i18n="proj.title">精選專案</h2>
+      <div class="section-label" data-i18n="proj.label">Highlights</div>
+      <h2 class="section-title"  data-i18n="proj.title">精選亮點</h2>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -1262,13 +1278,13 @@
       'meta.desc':  '7 年以上數位營運經歷，深耕語音社交 App 生態。前 Lita 台灣區營運負責人，擅長大R維運與陪玩師社群管理。',
       'nav.about':   '關於我',   'nav.resume': '履歷',
       'nav.skills':  '技能',     'nav.certs':  '證照',
-      'nav.projects':'精選專案', 'nav.contact':'聯繫',
+      'nav.projects':'精選亮點', 'nav.contact':'聯繫',
       'hero.subtitle':'關於我與我的工作',
-      'hero.btn1':   '查看履歷', 'hero.btn2':'精選專案',
+      'hero.btn1':   '查看履歷', 'hero.btn2':'精選亮點',
       'hero.bio1':   '7 年數位營運經歷，橫跨 B 端供給側夥伴管理（陪玩師招募、培訓、日常維護）與 C 端用戶營運，擅長多渠道溝通策略規劃與高付費用戶維護。曾任 Lita 台灣市場唯一本地營運負責人，全程主導完整營運週期（2022–2026），並延伸至馬來西亞華人市場建立雙市場營運體系。',
       'hero.bio2':   '親手搭建 Claude Code 多 Agent 協作系統，將高重複流程系統化，人工作業時間減少 80%。目前尋求全職 Operations Manager 或相關職缺，可遠端優先。',
       'exp.label':   'Experience', 'exp.title':'工作經歷',
-      'proj.label':  'Selected Work', 'proj.title':'精選專案',
+      'proj.label':  'Highlights', 'proj.title':'精選亮點',
       'contact.label':'Get In Touch', 'contact.title':'聯繫我',
       'contact.write.label':'寫信', 'contact.loc.label':'所在地',
       'lita.period': '2022年3月 — 2026年5月',
@@ -1315,13 +1331,13 @@
       'meta.desc':  '7 年以上数字化运营经验，深耕语音社交 App 生态。前 Lita 台湾区运营负责人，擅长大R维运与陪玩师社群管理。',
       'nav.about':   '关于我',   'nav.resume': '履历',
       'nav.skills':  '技能',     'nav.certs':  '证照',
-      'nav.projects':'精选项目', 'nav.contact':'联系',
+      'nav.projects':'精选亮点', 'nav.contact':'联系',
       'hero.subtitle':'关于我与我的工作',
-      'hero.btn1':   '查看履历', 'hero.btn2':'精选项目',
+      'hero.btn1':   '查看履历', 'hero.btn2':'精选亮点',
       'hero.bio1':   '7 年数字化运营经历，横跨 B 端供给侧伙伴管理（陪玩师招募、培训、日常维护）与 C 端用户运营，擅长多渠道沟通策略规划与高付费用户维护。曾任 Lita 台湾市场唯一本地运营负责人，全程主导完整运营周期（2022–2026），并延伸至马来西亚华人市场建立双市场运营体系。',
       'hero.bio2':   '亲手搭建 Claude Code 多 Agent 协作系统，将高重复流程系统化，人工作业时间减少 80%。目前寻求全职 Operations Manager 或相关职位，可远程优先。',
       'exp.label':   'Experience', 'exp.title':'工作经历',
-      'proj.label':  'Selected Work', 'proj.title':'精选项目',
+      'proj.label':  'Highlights', 'proj.title':'精选亮点',
       'contact.label':'Get In Touch', 'contact.title':'联系我',
       'contact.write.label':'邮件', 'contact.loc.label':'所在地',
       'lita.period': '2022年3月 — 2026年5月',
@@ -1368,13 +1384,13 @@
       'meta.desc':  '7+ years in digital operations, specializing in voice & social entertainment apps. Former sole Taiwan Operations Manager at Lita (2022–2026).',
       'nav.about':   'About',    'nav.resume': 'Resume',
       'nav.skills':  'Skills',   'nav.certs':  'Certs',
-      'nav.projects':'Projects', 'nav.contact':'Contact',
+      'nav.projects':'Highlights', 'nav.contact':'Contact',
       'hero.subtitle':"Here's who I am & what I do",
-      'hero.btn1':   'View Resume', 'hero.btn2':'Projects',
+      'hero.btn1':   'View Resume', 'hero.btn2':'Highlights',
       'hero.bio1':   '7+ years in digital operations, spanning supply-side partner management (companion recruitment, training & daily support) and user-side operations, with expertise in multi-channel communication strategy and high-value user retention. Former sole local Operations Manager at Lita Taiwan (2022–2026); extended coverage to Malaysia\'s Chinese-speaking market to build a dual-market operations system.',
       'hero.bio2':   'Built a Claude Code multi-agent automation system from scratch — cutting manual work by 80%. Open to full-time Operations Manager and related roles; remote-friendly.',
       'exp.label':   'Experience', 'exp.title':'Work Experience',
-      'proj.label':  'Selected Work', 'proj.title':'Projects',
+      'proj.label':  'Highlights', 'proj.title':'Highlights',
       'contact.label':'Get In Touch', 'contact.title':'Contact',
       'contact.write.label':'Write', 'contact.loc.label':'Location',
       'lita.period': 'Mar 2022 — May 2026',
@@ -1394,7 +1410,7 @@
       'cit.tags':    '<span class="tag">Event Planning</span><span class="tag">Digital Transformation</span>',
       'kinder.period':  'Oct 2016 — Mar 2018',
       'kinder.role':    'Music Teacher',
-      'kinder.company': 'Charlotte Kindergarten (YOYO Branch)',
+      'kinder.company': 'Charlotte Preschool (YOYO Branch)',
       'kinder.desc':    '・Music teacher at the kindergarten, simultaneously taking on 10+ private students across ages 2–60.<br>・Organized regular student recitals; managed lesson planning and performance showcase logistics.',
       'kinder.tags':    '<span class="tag">Music Education</span><span class="tag">Event Planning</span>',
       'p1.title':    'Automated Companion Scheduling & Dispatch',
