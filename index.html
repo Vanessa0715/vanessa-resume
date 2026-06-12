@@ -934,6 +934,21 @@
       .hero-buttons { justify-content: center; }
       .hero-bio p { max-width: 100%; }
 
+      #about { align-items: flex-start; }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        grid-template-areas: "period period" "logo role" "logo company" "desc desc" "tags tags";
+        column-gap: 12px;
+      }
+      .timeline-logo { position: static; grid-area: logo; align-self: center; width: 44px; height: 44px; }
+      .timeline-period { grid-area: period; }
+      .timeline-role { grid-area: role; }
+      .timeline-company { grid-area: company; margin-bottom: 0; }
+      .timeline-desc { grid-area: desc; margin-top: 12px; }
+      .timeline-tags { grid-area: tags; }
+
       .section { padding: 64px 24px; }
       .contact-grid { grid-template-columns: 1fr; }
 
