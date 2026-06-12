@@ -968,6 +968,14 @@
     body.mobile-preview #preview-root .hero-content { padding: 0 24px; max-width: 100%; text-align: center; }
     body.mobile-preview #preview-root .hero-buttons { justify-content: center; }
     body.mobile-preview #preview-root .hero-bio p { max-width: 100%; }
+    body.mobile-preview #preview-root #about { align-items: flex-start; }
+    body.mobile-preview #preview-root .timeline-item { display: grid; grid-template-columns: 44px 1fr; grid-template-areas: "period period" "logo role" "logo company" "desc desc" "tags tags"; column-gap: 12px; }
+    body.mobile-preview #preview-root .timeline-logo { position: static; grid-area: logo; align-self: center; width: 44px; height: 44px; }
+    body.mobile-preview #preview-root .timeline-period { grid-area: period; }
+    body.mobile-preview #preview-root .timeline-role { grid-area: role; }
+    body.mobile-preview #preview-root .timeline-company { grid-area: company; margin-bottom: 0; }
+    body.mobile-preview #preview-root .timeline-desc { grid-area: desc; margin-top: 12px; }
+    body.mobile-preview #preview-root .timeline-tags { grid-area: tags; }
     body.mobile-preview #preview-root .section { padding: 64px 24px; }
     body.mobile-preview #preview-root .contact-grid { grid-template-columns: 1fr; }
     body.mobile-preview #preview-root #footer { flex-direction: column; gap: 24px; text-align: center; padding: 28px 24px; }
